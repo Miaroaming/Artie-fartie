@@ -1,9 +1,12 @@
 //require dotenv and envoke it
 require('dotenv').config()
+// cors
+const cors = require('cors')
 const express = require('express');
 const mongoose = require('mongoose')
 const app = express();
 const port = 4000;
+
 
 // import routes
 const craftRoutes = require('./routes/crafts')
@@ -17,6 +20,9 @@ app.use((req, res, next) => {
     console.log(req.path, req.method);
     next()
 })
+
+// Allow cross Origin
+app.use(cors());
 
 // Attach Routes to the app:
 app.use('/api/crafts/', craftRoutes) // attaches all the routes to the app
