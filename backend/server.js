@@ -1,10 +1,26 @@
 //require dotenv and envoke it
 require('dotenv').config()
-
 const express = require('express');
 const mongoose = require('mongoose')
 const app = express();
 const port = 4000;
+
+// import routes
+const craftRoutes = require('./routes/crafts')
+const userRoutes = require('./routes/user')
+
+// use json with express
+app.use(express.json());
+
+//log out path and method of each request
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next()
+})
+
+// Attach Routes to the app:
+app.use('/api/crafts/', craftRoutes) // attaches all the routes to the app
+app.use('/api/user', userRoutes)
 
 // mongo user name & password goes here  //
 const mongoUsername = process.env.MONGODB_USERNAME

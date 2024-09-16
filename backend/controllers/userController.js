@@ -5,7 +5,7 @@ const loginUser = async (req, res) => {
 
 // signup user 
 const signupUser = async (req,res) => {
-    const {email, password} = request.body
+    const {email, password} = req.body
 
     try {
         // calls the custom signup static method defined in the User Model
