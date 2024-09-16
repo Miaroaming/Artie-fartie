@@ -33,6 +33,10 @@ const craftSchema = new Schema({
     },
     materials: {
         type: String
+    },
+    user_id: {
+        type: String,
+        required: true
     }
 }, {timestamps: true});
 

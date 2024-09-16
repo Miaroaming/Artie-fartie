@@ -30,10 +30,10 @@ const getCraft = async ( req, res) => {
 // Post Craft
 
 const createCraft = async ( req, res) => {
-    const { title, type, description, price, notForSale, anonymous, materials} = req.body
+    const { title, type, description, price, notForSale, anonymous, materials, user_id} = req.body
 
     try {
-        const craft = await Craft.create({ title, type, description, price, notForSale, anonymous, materials})
+        const craft = await Craft.create({ title, type, description, price, notForSale, anonymous, materials, user_id})
         res.status(200).json(craft)
     } 
     catch (error) {
