@@ -5,6 +5,9 @@ import './app.scss'
 import Navbar from './components/nav/navbar/Navbar'
 import Home from './pages/home/Home'
 import Footer from './components/nav/footer/Footer'
+// PAGES
+import Signup from './pages/signup/Signup'
+import Login from './pages/login/Login'
 
 
 const App = () => {
@@ -15,6 +18,8 @@ const App = () => {
       <Navbar/>
       <Routes>
         <Route exact path='/' element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
