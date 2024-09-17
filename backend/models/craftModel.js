@@ -9,6 +9,7 @@ const craftSchema = new Schema({
     },
     imageURL: {
         type: String,
+        default: null
     },
     type: {
         type: String,
