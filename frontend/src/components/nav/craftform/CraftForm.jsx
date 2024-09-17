@@ -21,17 +21,28 @@ const CraftForm = () => {
     const handleSubmit = async ( e ) => {
         e.preventDefault()
 
-        const user = JSON.parse(localStorage.getItem('user'))
+        const user = JSON.parse(localStroage.getItem('user'))
         const user_id = user.email
 
-        const craft = {imageURL, title, type, description, material, price, notForSale, anonymous, user_id}
+        const formData = new FormData ()
+        formData.append('title', title);
+        formData.append('imageURL', imageURL);
+        formData.append('type', type);
+        formData.append('description', description);
+        formData.append('material', material);
+        formData.append('price', price);
+        formData.append('notForSale', notForSale);
+        formData.append('anonymous', anonymous);
+        formData.append('user_id', user_id);
+    
 
         try {
-            const response = await axios.post('http://localhost:4000/api/crafts', craft, {
+            const response = await axios.post('http://localhost:4000/api/crafts/', formData, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'multipart/form-data'
                 }
             });
+
             setImageURL( null )
             setTitle('')
             setType('')
@@ -42,7 +53,9 @@ const CraftForm = () => {
             setAnonymous( false )
             setError( null )
             console.log('new craft added', response.data)
+
             dispatch({type: 'CREATE_CRAFTS', payload: response.data})
+            
         } catch ( error) {
             setError( error.message )
         }

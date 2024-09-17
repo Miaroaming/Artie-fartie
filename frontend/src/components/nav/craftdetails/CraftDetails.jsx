@@ -13,7 +13,10 @@ const CraftDetails = ({ craft }) => {
                 <h4>{ craft.title }</h4>
                 <h6>{ craft.price }</h6>
               </div>
-              <img src={ craft.imageURL } alt="" />
+              {workout.image && (
+                        <img className="workout-image" src={`http://localhost:4000/public/uploads/${workout.image}`} alt="Workout" />
+                    )}
+                    
               <div className='project-bottom-info-container'>
                 <div className='project-bottom-left-container'>
                   <p><strong>Created by: </strong>{ craft.user_id }</p>
