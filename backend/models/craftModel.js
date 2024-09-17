@@ -7,6 +7,9 @@ const craftSchema = new Schema({
         type: String,
         required: true
     },
+    imageURL: {
+        type: String,
+    },
     type: {
         type: String,
         enum: [
