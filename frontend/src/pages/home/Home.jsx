@@ -1,10 +1,13 @@
+// Imports
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useCraftsContext } from '../../hooks/useCraftsContext'
-
-import CraftDetails from '../../components/nav/craftdetails/CraftDetails'
 import CraftForm from '../../components/nav/craftdetails/CraftForm'
+import CraftDetails from '../../components/nav/craftdetails/CraftDetails'
+// scss import
+import './home.scss'
 
+// Start of Home functionality
 const Home = () => {
   const {crafts, dispatch} = useCraftsContext()
 
@@ -18,16 +21,22 @@ const Home = () => {
         dispatch({type: 'SET_CRAFTS', payload: response.data})
 
       }
-
     }
 
     fetchCrafts()
   }, [])
 
+  // Home Output
   return (
 
-    <div>
-      HOME
+    <div className='home'>
+        <div className='crafts'>
+            { crafts && crafts.map (( craft ) => {
+                return (
+                      <CraftDetails key={ craft._id }>{ craft.title }</CraftDetails>
+                )
+            })}
+        </div>
     </div>
 
   )
