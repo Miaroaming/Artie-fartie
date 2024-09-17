@@ -34,12 +34,17 @@ const craftSchema = new Schema({
     materials: {
         type: String
     },
+    user_id: {
+        type: String,
+        required: true
+    },
     comments: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Comment', // Reference the Comment model
         },
     ]
+
 }, {timestamps: true});
 
 module.exports = mongoose.model('Craft', craftSchema)
