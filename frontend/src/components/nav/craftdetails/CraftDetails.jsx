@@ -1,6 +1,7 @@
 import React from 'react'
 // scss import
 import './craftDetails.scss'
+import { useCraftsContext } from '../../../hooks/useCraftsContext'
 
 // Craft Details function
 const CraftDetails = ({ craft }) => {
@@ -15,10 +16,19 @@ const CraftDetails = ({ craft }) => {
               {workout.image && (
                         <img className="workout-image" src={`http://localhost:4000/public/uploads/${workout.image}`} alt="Workout" />
                     )}
+                    
               <div className='project-bottom-info-container'>
                 <div className='project-bottom-left-container'>
                   <p><strong>Created by: </strong>{ craft.user_id }</p>
                 </div>
+                {/* <div className='project-bottom-right-container'>
+                <p>{formatDistanceToNow(
+							new Date(craft.createdAt),
+							{includeSeconds:true}, 
+							{addSuffix:true}
+								)
+							} ago</p>
+                </div> */}
                 <div className='project-bottom-container'>
                     <button>See more</button>
                 </div>

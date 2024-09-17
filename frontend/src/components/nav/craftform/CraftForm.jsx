@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios'
 import { useCraftsContext } from '../../../hooks/useCraftsContext';
+import './craftForm.scss'
 
 const CraftForm = () => {
     // dispatch for useContext
@@ -73,11 +74,13 @@ const CraftForm = () => {
                 <div className='craft-post-input'>
 
                     <label className='craft-post-label'>Title:</label>
-                    <input 
+                    <div className='box-background'>
+                        <input 
                         type='text'
                         onChange={( e ) => setTitle( e.target.value )}
                         value={ title }
-                    />
+                    /></div>
+                    
 
                 </div>
 
@@ -85,11 +88,14 @@ const CraftForm = () => {
                 <div className='craft-post-input'>
 
                     <label className='craft-post-label'>Description:</label>
+                    <div className='box-background'>
                     <input 
                         type='text'
                         onChange={( e ) => setDescription( e.target.value )}
                         value={ description }
                     />
+                    </div>
+                    
 
                 </div>
 
@@ -98,6 +104,7 @@ const CraftForm = () => {
                 <div className='craft-post-input'>
 
                     <label className='craft-post-label'>Type:</label>
+                    <div className='box-background'>
                     <select 
                         onChange={( e ) => setType( e.target.value )}
                         value={ type }
@@ -109,6 +116,8 @@ const CraftForm = () => {
                         <option value='Jewellery'>Jewellery</option>
 
                     </select>
+                    </div>
+                    
 
                 </div>
 
@@ -116,16 +125,19 @@ const CraftForm = () => {
                 <div className='craft-post-input'>
 
                     <label className='craft-post-label'>Materials:</label>
+                    <div className='box-background'>
                     <input 
                         type='text'
                         onChange={( e ) => setMaterial(e.target.value )}
                         value={ material }
                     />
+                    </div>
+                    
 
                 </div>
 
                 {/* Not For Sale Checkbox */}
-                <div className='craft-post-input'>
+                <div className='craft-post-input' id='not-for-sale'>
 
                     <label className='craft-post-label'>Not For Sale:</label>
                     <input 
@@ -141,6 +153,7 @@ const CraftForm = () => {
 
                     <label className='craft-post-label'>Image:</label>
                     <input 
+                        id='image-upload'
                         type='file'
                         onChange={( e ) => setImageURL( e.target.files[ 0 ] )}
                         accept='image/*'
@@ -151,12 +164,14 @@ const CraftForm = () => {
                 {/* Price Input */}
                 <div className='craft-post-input'>
 
-                    <label className='craft-post-label'>Price:</label>
+                    <label className='craft-post-label'>Price: ($)</label>
+                    <div className='box-background'>
                     <input 
                         type='number'
                         onChange={( e ) => setPrice( e.target.value )}
                         value={ price }
                     />
+                    </div>
 
                 </div>
 
