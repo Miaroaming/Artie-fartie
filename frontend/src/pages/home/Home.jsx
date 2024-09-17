@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useCraftsContext } from '../../hooks/useCraftsContext'
-import CraftForm from '../../components/nav/craftdetails/CraftForm'
+import CraftForm from '../../components/nav/craftform/CraftForm'
 import CraftDetails from '../../components/nav/craftdetails/CraftDetails'
 // scss import
 import './home.scss'

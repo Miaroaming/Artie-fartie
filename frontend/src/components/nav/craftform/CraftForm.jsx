@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios'
-import { useCraftsContext } from '../hooks/useCraftContext';
+import { useCraftsContext } from '../../../hooks/useCraftsContext';
 
 const CraftForm = () => {
     // dispatch for useContext
@@ -23,7 +23,7 @@ const CraftForm = () => {
         const craft = {imageURL, title, type, description, material, price, notForSale, anonymous}
 
         try {
-            const response = await axios.post('http://localhost:4000/api/workouts/', workout, {
+            const response = await axios.post('http://localhost:4000/api/crafts/', craft, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

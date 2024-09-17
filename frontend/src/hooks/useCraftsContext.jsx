@@ -1,4 +1,4 @@
-import { CraftsContext } from "../context/CraftContext";
+import { CraftsContext } from "../context/CraftsContext";
 import { useContext } from "react";
 
 export const useCraftsContext = () => {
