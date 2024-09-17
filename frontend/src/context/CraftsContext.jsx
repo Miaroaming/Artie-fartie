@@ -20,7 +20,7 @@ export const craftsReducer = (state, action) => {
 
 export const CraftsContextProvider = ({children}) => {
 
-    const [state, dispatch] = useReducer (craftReducer, {
+    const [state, dispatch] = useReducer (craftsReducer, {
         crafts: null
     })
 
