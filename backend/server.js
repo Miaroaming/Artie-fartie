@@ -28,6 +28,9 @@ app.use(cors());
 app.use('/api/crafts/', craftRoutes) // attaches all the routes to the app
 app.use('/api/user', userRoutes)
 
+// Serve Static Files From public/uploads
+app.use('/public/uploads', express.static('public/uploads'))
+
 // mongo user name & password goes here  //
 const mongoUsername = process.env.MONGODB_USERNAME
 const mongoPassword = process.env.MONGODB_PASSWORD

@@ -27,13 +27,16 @@ const getCraft = async ( req, res) => {
     res.status(200).json(craft)
 }
 
+
 // Post Craft
 
 const createCraft = async ( req, res) => {
     const { title, type, description, price, notForSale, anonymous, materials, user_id} = req.body
 
+    const imageFilename = req.file ? req.file.filename : null;
+
     try {
-        const craft = await Craft.create({ title, type, description, price, notForSale, anonymous, materials, user_id})
+        const craft = await Craft.create({ title, type, description, price, notForSale, anonymous, materials, user_id, imageURL: imageFilename})
         res.status(200).json(craft)
     } 
     catch (error) {
