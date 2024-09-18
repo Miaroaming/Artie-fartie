@@ -65,6 +65,8 @@ const CraftForm = () => {
     return (
 
         // Create Craft Form
+        <>
+        <div id='graphpaper'>
         <div className='create-craft-post-container'>
 
             <h3>Create your Craft</h3>
@@ -184,13 +186,20 @@ const CraftForm = () => {
                     <label className='craft-post-label'>Post Anonymously</label>
                 </div>
 
-                <button className='create-post-button primary-button'>Add Post</button>
+                <div id='add-post-btn'>
+                    <button>Add Post</button>
+                </div>
                 { error && <div className='error'>{ error }</div>}
 
             </form>
 
-            
+
+            </div>
+
         </div>
+        
+        </>
+        
         
   )
 }

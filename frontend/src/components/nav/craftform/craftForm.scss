@@ -2,113 +2,158 @@ h1 {
     font-family: "Caveat", cursive;
 }
 /* new craft form */
-.create-craft-post-container {
-    margin-left: 10px;
-    background-color: #C4AF87;
-    width: 50%;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    h3 {
-        font-family: "Caveat", cursive;
-        font-size: 30px;
-        text-align: center;
-        padding: 10px;
-    }
-    .create-craft-post-form {
-        width: 90%;
-        .craft-post-input {
+    #graphpaper {
+        width: 100%;
+        height: 600px;
+        background-image: url(/images/graphpaper.png);
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    
+        .create-craft-post-container {
+            margin-left: 10px;
+            background-color: #C4AF87;
+            width: 70%;
+            height: 500px;
+            border-radius: 5px;
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
-            background-color: #a78991;
-            label {
+            h3 {
                 font-family: "Caveat", cursive;
-                font-size: 25px;
+                font-size: 30px;
+                text-align: center;
+                padding: 10px;
             }
-            .box-background {
-                width: 52%;
-                background-image: url(/images/input-text-img.webp);
-                background-position: left;
-                background-size: contain;
-                background-repeat: no-repeat;
-                margin-bottom: 10px;
-                
-                input {
-                    padding: 10px;
-                    background-color: transparent;
-                    border: none;
-                    font-family: "Caveat", cursive;
-                    font-size: 20px;
-                    width: 95%;
+            .create-craft-post-form {
+                width: 90%;
+                display: grid;
+                justify-content: center;
+                align-items: center;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                .craft-post-input {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    justify-content: center;
+
+                    label {
+                        font-family: "Caveat", cursive;
+                        font-size: 25px;
+                    }
+                    .box-background {
+                        width: 80%;
+                        background-image: url(/images/input-text-img.webp);
+                        background-position: left;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        margin-bottom: 10px;
+                        
+                        input {
+                            padding: 10px;
+                            background-color: transparent;
+                            border: none;
+                            font-family: "Caveat", cursive;
+                            font-size: 20px;
+                            width: 95%;
+                        }
+                        select {
+                            padding: 10px;
+                            background-color: transparent;
+                            border: none;
+                            width: 95%;
+                            font-family: "Caveat", cursive;
+                            font-size: 20px;
+                            option {
+                                background-color: #a78991;
+                                border-radius: 5px;
+                            }
+                        }
+                        select:hover {
+                            cursor: pointer;
+                        }
+                        input:focus,
+                        select:focus {
+                            border: none;
+                            outline: none;
+                        }
+                    }
+                    
+                    #image-upload {
+                        background-image: none;
+                    }
+                    
                 }
-                select {
-                    padding: 10px;
-                    background-color: transparent;
-                    border: none;
-                    width: 95%;
-                    font-family: "Caveat", cursive;
-                    font-size: 20px;
-                    option {
-                        background-color: #a78991;
+                #not-for-sale,
+                #post-anon {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+                    input[type='checkbox'] {
+                        width: 30px;
+                        height: 30px;
+                        background-color: transparent;
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        border: solid 2px #000000;
                         border-radius: 5px;
                     }
+                    input[type='checkbox']:hover {
+                        cursor: pointer;
+                    }
+                    input[type="checkbox"]:checked::after {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 25px;
+                        font-size: 25px;
+                        content: '✔';
+                        color: rgb(0, 0, 0);
+                    }
                 }
-                input:focus,
-                select:focus {
-                    border: none;
-                    outline: none;
+                #add-post-btn {
+                    width: 100%;
+                    background-image: url(/images/addpost-btn.png);
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-bottom: 10px;
+                    grid-area: 5/1/5/3;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                
+                    button {
+                        background-color: transparent;
+                        padding: 10px;
+                        cursor: pointer;
+                        font-family: "Caveat", cursive;
+                        font-size: 25px;
+                        border: none;
+                        color: #722539;
+                        font-weight: 800;
+                        width: 100%;
+                        }
                 }
-            }
-            
-            #image-upload {
-                background-image: none;
-            }
-            
-        }
-        #not-for-sale,
-        #post-anon {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            input[type='checkbox'] {
-                width: 30px;
-                height: 30px;
-                background-color: transparent;
-                appearance: none;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                border: solid 2px #c41343;
-            }
-            input[type='checkbox']:checked {
-                background-color: #C4AF87;
-                content: '➔';
-                color: white;
+                div.error {
+                    padding: 10px;
+                    background: #ffefef;
+                    border: 1px solid var(--error);
+                    color: var(--error);
+                    border-radius: 8px;
+                    margin: 20px 0;
+                    }
             }
         }
+        
+    
     }
-}
-
-form button {
-    background: var(--primary);
-    border: 0;
-    color: rgb(217, 87, 87);
-    background-color: aqua;
-    padding: 10px;
-    font-family: 'Lato';
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: "Caveat", cursive;
-    font-size: 25px;
-    }
-
-div.error {
-    padding: 10px;
-    background: #ffefef;
-    border: 1px solid var(--error);
-    color: var(--error);
-    border-radius: 8px;
-    margin: 20px 0;
-    }
-
+    
