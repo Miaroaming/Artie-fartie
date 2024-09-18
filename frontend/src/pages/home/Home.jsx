@@ -40,6 +40,9 @@ const Home = () => {
   return (
 
     <div className='home'>
+      <div className='cardboard-header'>
+        <img className='home-title-img' src="/images/home-title-img.webp" alt="" />
+      </div>
         <div className='crafts'>
         <button onClick={handleMyCrafts}>My Crafts</button>
         <button onClick={handleAllCrafts}>All Crafts</button>

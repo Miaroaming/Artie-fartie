@@ -12,15 +12,17 @@ const Navbar = () => {
   }
 
   return (
-    <header>
-        <div className="Container">
+    <nav>
+        <div className="nav-container">
           <Link to="/">
-            <h1>ARTIE FARTIE'S</h1>
+            <img id='logo' src="./images/artielogo.png" alt="" />
           </Link>
 
-          {user && (<div>
+          {user && (<div id='username-logoutbtn'>
                 <span>{user.email}</span>
-                <button onClick={handleClick}>Logout</button>
+                <div id='logout-btn'>
+                  <button onClick={handleClick}>Logout</button>
+                </div>
               </div>)}
 
               {!user && (<div>
@@ -28,7 +30,7 @@ const Navbar = () => {
                 <Link to="/signup">Signup</Link>
               </div>)}
         </div>
-    </header>
+    </nav>
   )
 }
 
