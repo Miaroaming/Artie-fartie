@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useCraftsContext } from '../../../hooks/useCraftsContext';
 import './craftForm.scss'
 
+
 const CraftForm = () => {
     // dispatch for useContext
     const { dispatch } = useCraftsContext()
@@ -18,48 +19,48 @@ const CraftForm = () => {
     // Error State
     const [error, setError] = useState(null)
 
-    const handleSubmit = async ( e ) => {
-        e.preventDefault()
-
-        const user = JSON.parse(localStorage.getItem('user'))
-        const user_id = user.email
-
-        const formData = new FormData ()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        const user = JSON.parse(localStorage.getItem('user'));
+        const user_id = user.email;
+    
+        const formData = new FormData();
         formData.append('title', title);
-        formData.append('imageURL', imageURL);
+        formData.append('imageURL', imageURL);  // Make sure imageURL is set correctly
         formData.append('type', type);
         formData.append('description', description);
         formData.append('material', material);
         formData.append('price', price);
-        formData.append('notForSale', notForSale);
-        formData.append('anonymous', anonymous);
+        formData.append('notForSale', notForSale);  // Should be boolean
+        formData.append('anonymous', anonymous);    // Should be boolean
         formData.append('user_id', user_id);
     
-
         try {
             const response = await axios.post('http://localhost:4000/api/crafts/', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
-                }
+                },
             });
-
-            setImageURL( null )
-            setTitle('')
-            setType('')
-            setDescription('')
-            setMaterial('')
-            setPrice('')
-            setNotForSale( false )
-            setAnonymous( false )
-            setError( null )
-            console.log('new craft added', response.data)
-
-            dispatch({type: 'CREATE_CRAFTS', payload: response.data})
-            
-        } catch ( error) {
-            setError( error.message )
+    
+            // Reset form fields
+            setTitle('');
+            setType('');
+            setDescription('');
+            setMaterial('');
+            setPrice('');
+            setNotForSale(false);
+            setAnonymous(false);
+            setError(null);
+    
+            console.log('new craft added', response.data);
+            dispatch({ type: 'CREATE_CRAFTS', payload: response.data });
+    
+        } catch (error) {
+            console.error(error.response ? error.response.data : error.message);
+            setError(error.response ? error.response.data.message : error.message);
         }
-    }
+    };
 
     // CraftForm Output
     return (
@@ -141,7 +142,7 @@ const CraftForm = () => {
                 <div className='craft-post-input' id='not-for-sale'>
                     <input 
                         type='checkbox'
-                        onChange={( e ) => setNotForSale( e.target.value )}
+                        onChange={( e ) => setNotForSale( e.target.checked )}
                         value={ notForSale }
                     />
                     <label className='craft-post-label'>Not For Sale</label>
@@ -178,7 +179,7 @@ const CraftForm = () => {
                 <div className='craft-post-input' id='post-anon'>
                     <input 
                         type='checkbox'
-                        onChange={( e ) => setAnonymous( e.target.value )}
+                        onChange={( e ) => setAnonymous( e.target.checked )}
                         value={ anonymous }
                     />
                     <label className='craft-post-label'>Post Anonymously</label>
