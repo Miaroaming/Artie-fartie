@@ -1,3 +1,4 @@
+@charset "UTF-8";
 h1 {
   font-family: "Caveat", cursive;
 }
@@ -32,41 +33,62 @@ h1 {
   font-size: 25px;
 }
 .create-craft-post-container .create-craft-post-form .craft-post-input .box-background {
-  background-image: url(../../../../public/images/input-text-img.webp);
-  background-position: center;
-  background-size: cover;
-  height: 53px;
-  width: 60%;
+  width: 52%;
+  background-image: url(/images/input-text-img.webp);
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
   margin-bottom: 10px;
 }
 .create-craft-post-container .create-craft-post-form .craft-post-input .box-background input {
   padding: 10px;
   background-color: transparent;
   border: none;
+  font-family: "Caveat", cursive;
+  font-size: 20px;
+  width: 95%;
 }
-.create-craft-post-container .create-craft-post-form .craft-post-input input:focus,
-.create-craft-post-container .create-craft-post-form .craft-post-input select:focus {
+.create-craft-post-container .create-craft-post-form .craft-post-input .box-background select {
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  width: 95%;
+  font-family: "Caveat", cursive;
+  font-size: 20px;
+}
+.create-craft-post-container .create-craft-post-form .craft-post-input .box-background select option {
+  background-color: #a78991;
+  border-radius: 5px;
+}
+.create-craft-post-container .create-craft-post-form .craft-post-input .box-background input:focus,
+.create-craft-post-container .create-craft-post-form .craft-post-input .box-background select:focus {
   border: none;
   outline: none;
 }
 .create-craft-post-container .create-craft-post-form .craft-post-input #image-upload {
   background-image: none;
 }
-.create-craft-post-container .create-craft-post-form .craft-post-input select {
-  background-image: url(../../../../public/images/input-text-img.webp);
-  background-position: center;
-  background-size: cover;
-  padding: 10px;
-  background-color: transparent;
-  border: none;
-}
-.create-craft-post-container .create-craft-post-form #not-for-sale {
+.create-craft-post-container .create-craft-post-form #not-for-sale,
+.create-craft-post-container .create-craft-post-form #post-anon {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  align-items: center;
 }
-.create-craft-post-container .create-craft-post-form #not-for-sale input {
-  width: 20px;
+.create-craft-post-container .create-craft-post-form #not-for-sale input[type=checkbox],
+.create-craft-post-container .create-craft-post-form #post-anon input[type=checkbox] {
+  width: 30px;
+  height: 30px;
   background-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: solid 2px #c41343;
+}
+.create-craft-post-container .create-craft-post-form #not-for-sale input[type=checkbox]:checked,
+.create-craft-post-container .create-craft-post-form #post-anon input[type=checkbox]:checked {
+  background-color: #C4AF87;
+  content: "➔";
+  color: white;
 }
 
 form button {
