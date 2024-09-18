@@ -1,10 +1,34 @@
 import React from 'react'
+import axios from 'axios'
 // scss import
 import './craftDetails.scss'
 import { useCraftsContext } from '../../../hooks/useCraftsContext'
 
 // Craft Details function
 const CraftDetails = ({ craft }) => {
+
+  const { dispatch } = useCraftsContext()
+
+  const handleClick = async () => {
+    const response = await axios.delete (`http://localhost:4000/public/uploads/${craft._id}` )
+    const json = await response.data
+
+    if(response.status === 200) {
+      console.log(json);
+      dispatch({type: 'DELETE-CRAFT', payload: json})
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
     // Craft Details Output
   return (
     <div className="craft-details">
@@ -13,8 +37,8 @@ const CraftDetails = ({ craft }) => {
                 <h4>{ craft.title }</h4>
                 <h6>{ craft.price }</h6>
               </div>
-              {workout.image && (
-                        <img className="workout-image" src={`http://localhost:4000/public/uploads/${workout.image}`} alt="Workout" />
+              {craft.image && (
+                        <img src={`http://localhost:4000/public/uploads/${craft.image}`} alt="craft" />
                     )}
                     
               <div className='project-bottom-info-container'>
@@ -34,7 +58,7 @@ const CraftDetails = ({ craft }) => {
                 </div>
                 
               </div>
-              
+              <span onClick={handleClick}>delete</span>
             </div>
     </div>
   )
