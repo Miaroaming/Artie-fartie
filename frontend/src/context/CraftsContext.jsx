@@ -13,6 +13,11 @@ export const craftsReducer = (state, action) => {
             return {
                 crafts: [ action.payload, ...state.crafts]
             }
+
+        case 'DELETE_CRAFT':
+            return {
+                crafts: state.crafts.filter((craft) => craft._id !== action.payload._id)
+            }
         default:
             return state
     }
