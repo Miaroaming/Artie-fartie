@@ -21,7 +21,7 @@ const CraftForm = () => {
     const handleSubmit = async ( e ) => {
         e.preventDefault()
 
-        const user = JSON.parse(localStroage.getItem('user'))
+        const user = JSON.parse(localStorage.getItem('user'))
         const user_id = user.email
 
         const formData = new FormData ()
