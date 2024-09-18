@@ -92,17 +92,18 @@ const CraftForm = () => {
 
                     <label className='craft-post-label'>Type:</label>
                     <div className='box-background'>
-                    <select 
-                        onChange={( e ) => setType( e.target.value )}
-                        value={ type }
-                    >
-                        <option value='Crochet'>Crochet</option>
-                        <option value='Embroidery'>Embroidery</option>
-                        <option value='Painting'>Painting</option>
-                        <option value='Pottery'>Pottery</option>
-                        <option value='Jewellery'>Jewellery</option>
+                        <select 
+                            onChange={( e ) => setType( e.target.value )}
+                            value={ type }
+                        >
+                            <option value='Crochet'>Crochet</option>
+                            <option value='Embroidery'>Embroidery</option>
+                            <option value='Painting'>Painting</option>
+                            <option value='Pottery'>Pottery</option>
+                            <option value='Jewellery'>Jewellery</option>
+                            <option value='Other'>Other</option>
 
-                    </select>
+                        </select>
                     </div>
                     
 
@@ -125,14 +126,12 @@ const CraftForm = () => {
 
                 {/* Not For Sale Checkbox */}
                 <div className='craft-post-input' id='not-for-sale'>
-
-                    <label className='craft-post-label'>Not For Sale:</label>
                     <input 
                         type='checkbox'
                         onChange={( e ) => setNotForSale( e.target.value )}
                         value={ notForSale }
                     />
-
+                    <label className='craft-post-label'>Not For Sale</label>
                 </div>
 
                 {/* Image Upload */}
@@ -163,15 +162,13 @@ const CraftForm = () => {
                 </div>
 
                 {/* Anonymous Checkbox */}
-                <div className='craft-post-input'>
-
-                    <label className='craft-post-label'>Post Anonymously:</label>
+                <div className='craft-post-input' id='post-anon'>
                     <input 
                         type='checkbox'
                         onChange={( e ) => setAnonymous( e.target.value )}
                         value={ anonymous }
                     />
-
+                    <label className='craft-post-label'>Post Anonymously</label>
                 </div>
 
                 <button className='create-post-button primary-button'>Add Post</button>
