@@ -1,3 +1,58 @@
-h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+.nav-container {
+    background-color: #C4AF87;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    #logo {
+        width: 70px;
+        height: auto;
+    }
+    #username-logoutbtn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+        margin-right: 30px;
+
+        span {
+            font-size: 25px;
+            font-family: "Caveat", cursive;
+        }
+
+        #logout-btn {
+            background-image: url(/images/secondary-button.webp);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            button {
+                background-color: transparent;
+                border: none;
+                width: 100%;
+                padding: 10px;
+                font-size: 25px;
+                font-family: "Caveat", cursive;
+                color: #722539;
+                font-weight: 700;
+            }
+            button:hover {
+                cursor: pointer;
+            }
+        }
+        #logout-btn:hover {
+            background-image: url(/images/secondary-button-hover.webp);
+        }
+    }
+    
+}
+
