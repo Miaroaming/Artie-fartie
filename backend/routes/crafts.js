@@ -35,7 +35,7 @@ router.get('/', getCrafts)
 router.get('/:id', getCraft)
 
 // Create Craft
-router.post('/', upload.single('image'), createCraft)
+router.post('/', upload.single('imageURL'), createCraft)
 
 // Delete Craft
 router.delete('/:id', deleteCraft)
