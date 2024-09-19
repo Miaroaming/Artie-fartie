@@ -1,0 +1,122 @@
+.login-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-header {
+    padding-top: 30px;
+    width: 40%;
+}
+
+.card-background {
+    position: relative;
+    width: 60%;
+}
+
+.card-image {
+    width: 100%;
+}
+
+.login-input-label {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.label-input {
+    width: 100%;
+}
+
+label {
+    font-family: "Caveat", cursive;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.box-background {
+    width: 100%;
+    background-image: url(/images/input-text-img.webp);
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    
+    input {
+        padding: 10px;
+        background-color: transparent;
+        border: none;
+        font-family: "Caveat", cursive;
+        font-size: 20px;
+    }
+
+    input:focus {
+        border: none;
+        outline: none;
+    }
+}
+
+.add-post-btn {
+    width: 100%;
+    background-image: url(/images/secondary-button.webp);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+    border: none;
+    color: #722539;
+    font-weight: 800;
+    width: 50%;
+    }
+
+button:hover {
+    cursor: pointer;
+}
+
+.login-button {
+    width: 60%;
+}
+
+
+.add-post-btn:hover {
+    background-image: url(/images/secondary-button-hover.webp);
+}
+
+.error-message {
+    font-family: "Caveat", cursive;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    border: none;
+    color: #722539;
+    font-weight: 800;
+}
