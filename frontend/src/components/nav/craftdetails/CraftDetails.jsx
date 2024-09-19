@@ -11,7 +11,7 @@ const CraftDetails = ({ craft }) => {
   const { dispatch } = useCraftsContext()
 
   const handleDelete = async () => {
-    const response = await axios.delete ( `http://localhost:4000/public/uploads/${ craft._id }` )
+    const response = await axios.delete ( `http://localhost:4000/api/crafts/${ craft._id }` )
     const json = await response.data
 
     if( response.status === 200 ) {
@@ -220,10 +220,10 @@ const CraftDetails = ({ craft }) => {
 
               </div>
 
-              {/* <div onClick={ handleDelete } className='craft-detail-button-container delete-button'>
+              <div onClick={ handleDelete } className='craft-detail-button-container delete-button'>
                 <div className='craft-detail-button-img'>Delete</div>
                 <div className='craft-detail-button-img-hover'></div>
-              </div> */}
+              </div>
 
               <div onClick={ handleEdit } className='craft-detail-button-container edit-button'>
 
