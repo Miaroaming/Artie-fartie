@@ -7,7 +7,7 @@
 .home {
     background-image: url(/images/background-img.webp);
     background-size: cover;
-    background-position: center;
+    background-position: fixed;
     background-repeat: repeat-y;
     .cardboard-header {
         background-image: url(/images/cardboardpapernav.png);
@@ -23,5 +23,68 @@
             width: 50%;
         }
     }
+    .crafts {
+        .btns-cont {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 0 12%;
+            width: 77%;
+            #three-btns {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                .craft-btn-image {
+                    width: 100%;
+                    background-image: url(/images/black-btn.png);
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    button,
+                    select {
+                        background-color: transparent;
+                        width: 100%;
+                        border: none;
+                        font-size: 25px;
+                        font-family: "Caveat", cursive;
+                        padding: 15px;
+                    }
+                    select:focus {
+                        border: none;
+                        outline: none;
+                    }
+                    button:hover,
+                    select:hover {
+                        cursor: pointer;
+                    }
+                }
+                .craft-btn-image:hover {
+                    background-image: url(/images/black-btn-hover.png);
+                }
+
+            }
+            #craft-btn-image {
+                background-image: url(/images/black-btn.png);
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            #craft-btn-image:hover {
+                background-image: url(/images/black-btn-hover.png);
+            }
+            
+        }
+    }
 }
 
+.add-craft-btn{
+    background-color: transparent;
+    width: 140px;
+    border: none;
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    padding: 15px;
+}
+.add-craft-btn:hover {
+    cursor: pointer;
+}

@@ -1,3 +1,16 @@
 h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.craft-info-container {
+  width: 20%;
+  background-color: rgb(213, 178, 178);
+}
+.craft-info-container .card-img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }/*# sourceMappingURL=craftDetails.css.map */
