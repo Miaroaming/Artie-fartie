@@ -18,6 +18,18 @@ export const craftsReducer = (state, action) => {
             return {
                 crafts: state.crafts.filter((craft) => craft._id !== action.payload._id)
             }
+
+        case 'UPDATE_CRAFT':
+            const updatedCraft = action.payload;
+                const updatedCrafts = state.crafts.map( craft => {
+                    if ( craft._id === updatedCraft._id ) {
+                    return updatedCraft;
+                    }
+                    return craft;
+                    });
+                    return {
+                        crafts: updatedCrafts,
+                    };
         default:
             return state
     }
