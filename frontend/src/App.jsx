@@ -8,6 +8,7 @@ import Footer from './components/nav/footer/Footer'
 // PAGES
 import Signup from './pages/signup/Signup'
 import Login from './pages/login/Login'
+import SinglePage from './pages/singlepage/SinglePage'
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path="/:id" element={<SinglePage/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

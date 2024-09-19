@@ -4,11 +4,13 @@ import axios from 'axios'
 import './craftDetails.scss'
 import { useCraftsContext } from '../../../hooks/useCraftsContext'
 import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
+import { useNavigate } from 'react-router-dom'
 
 // Craft Details function
 const CraftDetails = ({ craft }) => {
 
   const { dispatch } = useCraftsContext()
+  const navigate = useNavigate();
 
   const handleDelete = async () => {
     const response = await axios.delete ( `http://localhost:4000/api/crafts/${ craft._id }` )
@@ -30,6 +32,11 @@ const CraftDetails = ({ craft }) => {
   const [ editNotForSale, setEditNotForSale ] = useState( craft.notForSale );
   const [ editAnonymous, setEditAnonymous ] = useState( craft.anonymous );
   const [ editImageURL, setEditImageURL ] = useState( craft.imageURL );
+
+  const handleNavigate = () => {
+    let path = `/${ craft._id }`
+    navigate( path )
+  }
 
   const handleEdit = () => {
     setIsEditing( true );
@@ -238,7 +245,7 @@ const CraftDetails = ({ craft }) => {
               </div>
 
               <div className='project-bottom-container'>
-                  <button>See more</button>
+                  <button onClick={ handleNavigate }>See more</button>
               </div>
                 
             </div>
