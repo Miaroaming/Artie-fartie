@@ -14,7 +14,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 #graphpaper .create-craft-post-container {
   margin-left: 10px;
@@ -144,6 +144,12 @@ h1 {
   color: #722539;
   font-weight: 800;
   width: 100%;
+}
+#graphpaper .create-craft-post-container .create-craft-post-form #add-post-btn button:hover {
+  cursor: pointer;
+}
+#graphpaper .create-craft-post-container .create-craft-post-form #add-post-btn:hover {
+  background-image: url(/images/addpost-hover.png);
 }
 #graphpaper .create-craft-post-container .create-craft-post-form div.error {
   padding: 10px;
