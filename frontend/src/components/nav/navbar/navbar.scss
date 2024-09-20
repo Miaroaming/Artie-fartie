@@ -10,9 +10,37 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
+    .login-signup-btns {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        margin-right: 2%;
+        .nav-btns {
+            background-image: url(/images/secondary-button.webp);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a {
+                padding: 10px;
+                font-size: 25px;
+                font-family: "Caveat", cursive;
+                color: #722539;
+                font-weight: 700;
+                text-decoration: none;
+            }
+        }
+        .nav-btns:hover {
+            background-image: url(/images/secondary-button-hover.webp);
+        }
+    }
     #logo {
         width: 70px;
         height: auto;
+        margin-left: 15%;
     }
     #username-logoutbtn {
         display: flex;
