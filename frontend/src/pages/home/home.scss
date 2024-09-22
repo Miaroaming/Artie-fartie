@@ -24,6 +24,7 @@
         }
     }
     .crafts {
+    
         .btns-cont {
             display: flex;
             flex-direction: row;
@@ -48,6 +49,8 @@
                         font-size: 25px;
                         font-family: "Caveat", cursive;
                         padding: 15px;
+                        color: black;
+                        font-weight: 800;
                     }
                     select:focus {
                         border: none;
@@ -75,6 +78,7 @@
             
         }
     }
+    
 }
 
 .add-craft-btn{
@@ -84,6 +88,7 @@
     font-size: 25px;
     font-family: "Caveat", cursive;
     padding: 15px;
+    color: black;
 }
 .add-craft-btn:hover {
     cursor: pointer;

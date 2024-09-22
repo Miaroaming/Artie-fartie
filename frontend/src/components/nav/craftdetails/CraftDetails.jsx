@@ -215,7 +215,7 @@ const CraftDetails = ({ craft }) => {
             <div className='craft-top-info-container'>
 
               <h4>{ craft.title }</h4>
-              <h6>{ craft.price }</h6>
+              <h6>$ { craft.price }</h6>
 
             </div>
                   
