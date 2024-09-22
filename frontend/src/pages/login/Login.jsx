@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.scss';
+import {useLogin} from '../hooks/useLogin';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const {login, error, isLoading} = useLogin();
     
     // States for different screen sizes
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1350);
@@ -28,7 +30,7 @@ const Login = () => {
         };
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
 
@@ -43,7 +45,13 @@ const Login = () => {
             return;
         }
 
-        console.log("Form submitted");
+        await login(email, password);
+
+        if (!error) {
+            navigate('/');
+        } else {
+            setErrorMessage(error);
+        }
     };
 
     const handleSkip = () => {
@@ -98,7 +106,8 @@ const Login = () => {
                         </div>
 
                         <div className='login-button'>
-                            <button className='add-post-btn'>Login</button>
+                            <button className='add-post-btn' disabled={isLoading}>Login</button>
+                            {error && <div className="error">{error}</div>}
                         </div>
 
                         {/* Display error message */}

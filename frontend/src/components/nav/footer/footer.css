@@ -15,4 +15,6 @@
   font-family: "Caveat", cursive;
   position: fixed;
   bottom: 0;
+  z-index: 100;
+  margin-top: 5%;
 }/*# sourceMappingURL=footer.css.map */

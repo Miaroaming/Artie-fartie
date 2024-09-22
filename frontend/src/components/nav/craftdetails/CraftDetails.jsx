@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom'
 // Craft Details function
 const CraftDetails = ({ craft }) => {
 
+  const user = JSON.parse(localStorage.getItem('user'));
+  const user_id = user?.email
   const { dispatch } = useCraftsContext()
   const navigate = useNavigate();
 
@@ -220,14 +222,8 @@ const CraftDetails = ({ craft }) => {
             </div>
                   
             <div className='project-bottom-info-container'>
-
-              <div className='project-bottom-left-container'>
-
-                <p><strong>Created by: </strong>{ craft.user_id }</p>
-
-              </div>
-
               <div className='icons-and-time-created'>
+              {craft.user_id === user_id ? (
                 <div className='craft-detail-button-container'>
 
                   <div onClick={ handleEdit } id='edit'>
@@ -242,6 +238,9 @@ const CraftDetails = ({ craft }) => {
                   </div>
 
                   </div>
+                ) : (
+                  <p><strong>Created by: <br /> </strong>{ craft.user_id }</p>
+                )}
 
                   <div className='created-time'>
                     <p>Posted: <br /> { formatDistanceToNow( new Date( craft.createdAt ),{ includeSeconds: true }, { addSuffix: true })} ago
