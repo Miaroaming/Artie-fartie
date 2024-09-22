@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLogin } from '../../hooks/useLogin';
 import './login.scss';
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
     const [isPhone, setIsPhone] = useState(window.innerWidth <= 600);
 
     const navigate = useNavigate();
+    const { login } = useLogin(); // Make sure to destructure login
 
     // Handle screen resize events
     useEffect(() => {
@@ -28,9 +30,9 @@ const Login = () => {
         };
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {  // Mark the function as async
         e.preventDefault();
-        setErrorMessage('');
+        navigate('/');
 
         if (!email || !password) {
             setErrorMessage('Email and password are required.');
@@ -43,7 +45,13 @@ const Login = () => {
             return;
         }
 
-        console.log("Form submitted");
+        try {
+            await login(email, password);  // Ensure the await is used correctly
+            console.log("Form submitted");
+        } catch (error) {
+            setErrorMessage('Login failed.');
+            console.error(error);
+        }
     };
 
     const handleSkip = () => {
@@ -64,12 +72,12 @@ const Login = () => {
                         className='card-image'
                         src={
                             isPhone
-                                ? '../../../public/images/signup-login-phone.png' // Phone image
+                                ? '../../../public/images/signup-login-phone.png'
                                 : isTablet
-                                ? '../../../public/images/signup-login-tablet.png' // Tablet image
+                                ? '../../../public/images/signup-login-tablet.png'
                                 : isSmallScreen
-                                ? '../../../public/images/signup-login-small-screen.png' // Small screen image
-                                : '../../../public/images/signup-login.png' // Default image
+                                ? '../../../public/images/signup-login-small-screen.png'
+                                : '../../../public/images/signup-login.png'
                         }
                         alt='card-background'
                     />
