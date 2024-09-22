@@ -8,29 +8,32 @@ h1 {
     gap: 3%;
     justify-content: center;
     align-items: center;
-    margin: 1% 11%;
+    padding: 1% 11% 8% 11%;
     img {
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
     }
     .craft-details {
         width: 100%;
-        background-color: antiquewhite;
+        background-color: white;
         box-shadow: 8px 8px 13px 0px rgba(0,0,0,0.35);
+        border-radius: 2px;
 
         .craft-info-container {
             width: 100%;
-            padding: 10px;
+            height: 100%;
+            padding: 15px;
             .craft-top-info-container {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 h4 {
-                    font-size: 25px;
+                    font-size: 30px;
                     font-family: "Caveat", cursive;
                 }
                 h6 {
-                    font-size: 20px;
+                    font-size: 30px;
                     font-family: "Caveat", cursive;
                 }
             }
@@ -41,7 +44,89 @@ h1 {
                     display: flex;
                     flex-direction: row;
                     gap: 10px;
+                    padding: 10px;
+                    #edit {
+                        position: relative;
+                        .craft-edit-btn {
+                            width: 40px;
+                            height: 50px;
+                            background-image: url(/images/edit-button.webp);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            z-index: 2;
+                            position: relative;
+                        }
+                    }
+                    #edit:hover .edit-hover-img {
+                        width: 40px;
+                        height: 50px;
+                        background-image: url(/images/pink-hover.webp);
+                        background-size: contain;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 1;
+                    }
+                    
+                    #delete {
+                        position: relative;
+                        .craft-delete-btn {
+                            width: 40px;
+                            height: 50px;
+                            background-image: url(/images/delete-button-icon.webp);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            z-index: 2;
+                            position: relative;
+                        }
+                    }
+                    #delete:hover .delete-hover-img {
+                        width: 40px;
+                        height: 50px;
+                        background-image: url(/images/pink-hover.webp);
+                        background-size: contain;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 1;
+                    }
+                    
                 }
+                .craft-detail-button-container:hover {
+                    cursor: pointer;
+                }
+            }
+            .icons-and-time-created {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                .created-time {
+                    text-align: right;
+                    font-weight: 600;
+                }
+            }
+            .project-bottom-container {
+                width: 100%;
+                height: auto;
+                background-image: url(/images/see-more-btn.png);
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                
+                button {
+                    width: 100%;
+                    color: black;
+                }
+            }
+            .project-bottom-container:hover {
+                background-image: url(/images/see-more-btn-hover.png);
             }
             
         }

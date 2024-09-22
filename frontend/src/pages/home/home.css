@@ -9,9 +9,10 @@
   background-size: cover;
   background-position: fixed;
   background-repeat: repeat-y;
+  padding-bottom: 150px;
 }
 .home .cardboard-header {
-  background-image: url(/images/cardboardpapernav.png);
+  background-image: url(/images/homeheader.webp);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -51,6 +52,8 @@
   font-size: 25px;
   font-family: "Caveat", cursive;
   padding: 15px;
+  color: black;
+  font-weight: 800;
 }
 .home .crafts .btns-cont #three-btns .craft-btn-image select:focus {
   border: none;
@@ -80,6 +83,7 @@
   font-size: 25px;
   font-family: "Caveat", cursive;
   padding: 15px;
+  color: black;
 }
 
 .add-craft-btn:hover {
