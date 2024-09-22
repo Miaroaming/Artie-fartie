@@ -1,3 +1,4 @@
+
 const Craft = require ('../models/craftModel')
 
 const mongoose = require('mongoose')
@@ -5,8 +6,19 @@ const mongoose = require('mongoose')
 // Get All Crafts
 
 const getCrafts = async (req, res) => {
-    const crafts = await Craft.find({}).sort({createdAt: -1})
-    res.status(200).json(crafts)
+
+    try {
+        const crafts = await Craft.find({}).populate({
+            path: 'comments',
+            model:'Comment'
+        }).sort({createdAt: -1})
+
+        res.status(200).json(crafts)
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({error: 'Internal Server Error!'})
+    }
 }
 
 // Get Single Craft
@@ -18,13 +30,21 @@ const getCraft = async ( req, res) => {
         return res.status(404).json({error: 'No such Craft'})
     }
 
-    const craft = await Craft.findById(id)
+    try {
+        const craft = await Craft.findById(id).populate({
+            path: 'comments',
+            model: 'Comment'
+        });
 
     if(!craft) {
         return res.status(404).json({error: 'No such Craft'})
     }
 
-    res.status(200).json(craft)
+    res.status(200).json(craft);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: 'Internal server error'});
+    }   
 }
 
 
@@ -88,4 +108,4 @@ module.exports = {
     createCraft,
     deleteCraft,
     updateCraft
-}
+};

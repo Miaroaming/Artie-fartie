@@ -11,6 +11,7 @@ const port = 4000;
 // import routes
 const craftRoutes = require('./routes/crafts')
 const userRoutes = require('./routes/user')
+const commentRoutes = require('./routes/comment')
 
 // use json with express
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use(cors());
 // Attach Routes to the app:
 app.use('/api/crafts/', craftRoutes) // attaches all the routes to the app
 app.use('/api/user', userRoutes)
+app.use('/api/comments', commentRoutes);
 
 // Serve Static Files From public/uploads
 app.use('/public/uploads', express.static('public/uploads'))
