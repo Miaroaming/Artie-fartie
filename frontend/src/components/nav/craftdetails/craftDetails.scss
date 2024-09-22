@@ -2,13 +2,62 @@ h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.craft-info-container {
-    width: 20%;
-    background-color: rgb(213, 178, 178);
-    .card-img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        object-position: center;
+.card-posts-cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3%;
+    justify-content: center;
+    align-items: center;
+    margin: 1% 11%;
+    img {
+        width: 100px;
+        height: 100px;
     }
+    .craft-details {
+        width: 100%;
+        background-color: antiquewhite;
+        box-shadow: 8px 8px 13px 0px rgba(0,0,0,0.35);
+
+        .craft-info-container {
+            width: 100%;
+            padding: 10px;
+            .craft-top-info-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                h4 {
+                    font-size: 25px;
+                    font-family: "Caveat", cursive;
+                }
+                h6 {
+                    font-size: 20px;
+                    font-family: "Caveat", cursive;
+                }
+            }
+            .project-bottom-info-container {
+                font-size: 20px;
+                font-family: "Caveat", cursive;
+                .craft-detail-button-container {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                }
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card-posts-cont {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    .card-posts-cont {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 }

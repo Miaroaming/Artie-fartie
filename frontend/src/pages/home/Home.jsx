@@ -50,6 +50,7 @@ const Home = () => {
       </div>
       
       <div className='crafts'>
+
         <div className='btns-cont'>
           <div id='three-btns'>
             <div className='craft-btn-image'>
@@ -77,10 +78,15 @@ const Home = () => {
           
           
         </div>
-
         {showForm && (
         <CraftForm/>
         )}
+        </div>
+
+        <div className='card-posts-cont'>
+        
+
+        
           
           {myCrafts ? (crafts && crafts.map((craft) => {
             const user = JSON.parse(localStorage.getItem('user'))
@@ -98,6 +104,8 @@ const Home = () => {
                   )
               }))}
         </div>
+        
+        
         
     </div>
 
