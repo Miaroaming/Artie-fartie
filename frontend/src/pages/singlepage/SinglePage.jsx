@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
+import './singlepage.scss'
 
 const SinglePage = () => {
   //  use Navigate unction
@@ -49,9 +50,8 @@ const SinglePage = () => {
       <div className='single-craft-container'>
         <div className='top-single-craft-container'>
 
-          <button className='back-button' onClick={() => navigate( -1 )}>Go back</button>
+          <button className='back-button' onClick={() => navigate( -1 )}><span>Back</span></button>
           <h1>user</h1>
-          <div></div>
 
         </div>
         
@@ -59,13 +59,14 @@ const SinglePage = () => {
         <div className='bottom-single-craft-container'>
 
           <div className='left-single-craft-container'>
-            { craft.image && (
-              <img src={`http://localhost:4000/public/uploads/${ craft.image }`} alt='craft' />
+
+            { craft.imageURL && (
+              <img src={`http://localhost:4000/public/uploads/${ craft.imageURL }`} alt='craft' />
             )}
 
             <div className='bottom-left-single-craft-container'>
               <h3>{ craft.title }</h3>
-              <h3>{ craft.price }</h3>
+              <h3>${ craft.price }</h3>
             </div>
 
           </div>
@@ -74,23 +75,23 @@ const SinglePage = () => {
 
             <div className='right-top-single-craft-container'>
               <h3>{ craft.type }</h3>
-              <h3>For Sale</h3>
+              <h3 className='for-sale'>For Sale</h3>
               <h6>Created by:</h6>
               <p>{ craft.description }</p>
-              <p>{ craft.materials }</p>
 
             </div>
+
+            <p>{ craft.materials }</p>
 
             <div className='right-bottom-single-craft-container'>
               <h6>Posted { formatDistanceToNow( new Date( craft.createdAt ),{ includeSeconds: true }, { addSuffix: true })} ago </h6>
+
+              <button className='buy-button'>Buy Now</button>
             </div>
 
-            <button className='buy-button'>Buy Now</button>
-            
           </div>
         </div>
       </div>
-
     </>
   )
 }
