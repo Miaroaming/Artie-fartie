@@ -1,3 +1,142 @@
+.comments-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.comments-title {
+    width: 80%;
+}
+
+.comments-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #94804b;
+}
+
+.top-comments,
+.bottom-comments {
+    width: 80%;
+}
+
+.comments {
+    width: 80%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.comments-postit {
+    width: 100%;
+    position: relative;
+}
+
+.comment:nth-child(1) .comments-postit {
+    transform: rotate(-1deg);
+}
+
+.comment:nth-child(2) .comments-postit {
+    transform: rotate(0.5deg);
+}
+
+.comment:nth-child(3) .comments-postit {
+    transform: rotate(-.5deg);
+}
+
+.comment:nth-child(4) .comments-postit {
+    transform: rotate(1deg);
+}
+
+.add-comment {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-comment img.comments-postit {
+    width: 80%;
+}
+
+.add-comment label,
+.add-comment input,
+.add-comment button {
+    position: absolute;
+    z-index: 1;
+    color: black;
+}
+
+.add-comment label {
+    top: 30%;
+    left: 20%;
+    font-size: 30px;
+}
+
+.add-comment input {
+    font-family: "Caveat", cursive;
+    top: 55%;
+    width: 60%;
+    font-size: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.add-comment button {
+    top: 70%;
+    font-size: 20px;
+}
+
+.comment {
+    font-family: "Caveat", cursive;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    white-space: normal;
+}
+
+.comment h5,
+.comment p {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    z-index: 1;
+    color: black;
+}
+
+.comment span {
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    z-index: 1;
+    color: black;
+}
+
+.comment h5 {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.comment p {
+    margin-top: 9%;
+    font-size: 24px;
+    width: 80%;
+}
+
+.comment span {
+    margin-top: 17%;
+    right: 2%;
+    font-size: 14px;
+    color: #000000;
+}
+
 .single-craft-container {
     width: 100%;
     min-height: 100%;
@@ -183,3 +322,4 @@
         }
     }
 }
+
