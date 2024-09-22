@@ -31,23 +31,31 @@ const Signup = () => {
         };
     }, []);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setErrorMessage('');
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+    navigate('/');
+    setErrorMessage('');
 
-        if (!email || !password) {
-            setErrorMessage('Valid Email and password are required.');
-            return;
-        }
+    if (!email || !password) {
+        setErrorMessage('Valid Email and password are required.');
+        return;
+    }
 
-        const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
-        if (!passwordRegex.test(password)) {
-            setErrorMessage('Password must be at least 8 characters long, include one special character, one uppercase letter, and one number');
-            return;
-        }
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
+    if (!passwordRegex.test(password)) {
+        setErrorMessage('Password must be at least 8 characters long, include one special character, one uppercase letter, and one number');
+        return;
+    }
 
-        console.log("Form submitted");
-    };
+    console.log("Form submitted");
+
+    const response = await signup(email, password);
+    
+    if (response) {
+
+        navigate('/');
+    }
+};
 
     const handleSkip = () => {
         navigate('/');
@@ -101,7 +109,7 @@ const Signup = () => {
                         </div>
 
                         <div className='login-button'>
-                        <button className='add-post-btn' disabled={isLoading}>Sign up</button>
+                        <button className='add-post-btn' disabled={isLoading} onClick={handleSubmit}>Sign up</button>
                         {error && <div className="error">{error}</div>}
                         </div>
                         {/* Display error message */}
