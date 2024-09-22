@@ -1,0 +1,102 @@
+.single-craft-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .top-single-craft-container {
+        display: flex;
+        justify-content: center;
+        .back-button {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+        }
+        h1 {
+            font-family: "Caveat", cursive;
+            font-size: 4em;
+        }
+    }
+    .bottom-single-craft-container {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        .left-single-craft-container, 
+        .right-single-craft-container {
+            display: flex;
+            flex-direction: column;
+            width: 43%;
+            height: 90%;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .left-single-craft-container {
+            background-color: #7a4e4e;
+            box-shadow: 8px 8px 13px 0px rgba(0,0,0,0.35);
+            -webkit-shadow: 8px 8px 13px 0px rgba(0,0,0,0.35);
+            -moz-shadow: 8px 8px 13px 0px rgba(0,0,0,0.35);
+            gap: 10px;
+            .left-single-craft-img-container {
+                width: 100%;
+                height: 90%;
+                border-radius: 5px;
+                object-fit: contain;
+                object-position: center;
+                background-color: #ffffff;
+            }
+            .bottom-left-single-craft-container {
+                width: 100%;
+                height: 10%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                h3 {
+                    font-family: "Caveat", cursive;
+                    font-size: 2em;
+                }
+            }
+        }
+        .right-single-craft-container {
+            background-color: #E5D4B4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+            .right-top-single-craft-container {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                position: relative;
+                font-family: "Caveat", cursive;
+                h3 {
+                    font-size: 1.7em;
+                }
+                .for-sale {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-family: "Caveat", cursive;
+                }
+                h6 {
+                    font-size: 1.1em;
+                }
+                
+            }
+            p {
+                font-family: "Caveat", cursive;
+                font-size: 1.2em;
+            }
+            .right-bottom-single-craft-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: "Caveat", cursive;
+                font-size: 2em;
+            }
+        }
+        
+    }
+    
+}
