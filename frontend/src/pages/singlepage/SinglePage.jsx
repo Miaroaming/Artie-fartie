@@ -50,7 +50,7 @@ const SinglePage = () => {
       <div className='single-craft-container'>
         <div className='top-single-craft-container'>
 
-          <button className='back-button' onClick={() => navigate( -1 )}>Back</button>
+          <button className='back-button' onClick={() => navigate( -1 )}><span>Back</span></button>
           <h1>user</h1>
 
         </div>
@@ -60,12 +60,9 @@ const SinglePage = () => {
 
           <div className='left-single-craft-container'>
 
-            <div className='left-single-craft-img-container'>
-              { craft.image && (
-                <img src={`http://localhost:4000/public/uploads/${ craft.image }`} alt='craft' />
-              )}
-
-            </div>
+            { craft.imageURL && (
+              <img src={`http://localhost:4000/public/uploads/${ craft.imageURL }`} alt='craft' />
+            )}
 
             <div className='bottom-left-single-craft-container'>
               <h3>{ craft.title }</h3>

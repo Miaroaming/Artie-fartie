@@ -1,15 +1,55 @@
 .single-craft-container {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
+    background-image: url('/images/background-img.webp');
+    background-position: center;
+    background-size: cover;
     .top-single-craft-container {
         display: flex;
         justify-content: center;
+        margin: 20px 0;
         .back-button {
             position: absolute;
-            top: 100px;
-            left: 20px;
+            top: 80px;
+            left: 70px;
+            width: 200px;
+            height: 120px;
+            background-image: url('/images/back-button-img.webp');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            font-size: 1.7em;
+            font-family: 'Caveat', cursive;
+            color: #000000;
+            span {
+                display: inline-block;
+                margin-top: 20px;
+                font-weight: 200;
+            }
+        }
+        .back-button:hover {
+            position: absolute;
+            top: 80px;
+            left: 70px;
+            width: 200px;
+            height: 120px;
+            background-image: url('/images/back-button-img-hover.webp');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            span {
+                margin-top: 20px;
+                display: inline-block;
+                transform: rotate(8deg);
+            }
+           
+
         }
         h1 {
             font-family: "Caveat", cursive;
@@ -33,18 +73,17 @@
             padding: 20px;
         }
         .left-single-craft-container {
-            background-color: #7a4e4e;
+            background-color: #ffffff;
             box-shadow: 8px 8px 13px 0px rgba(0,0,0,0.35);
             -webkit-shadow: 8px 8px 13px 0px rgba(0,0,0,0.35);
             -moz-shadow: 8px 8px 13px 0px rgba(0,0,0,0.35);
             gap: 10px;
-            .left-single-craft-img-container {
+            img {
                 width: 100%;
                 height: 90%;
                 border-radius: 5px;
                 object-fit: contain;
                 object-position: center;
-                background-color: #ffffff;
             }
             .bottom-left-single-craft-container {
                 width: 100%;
@@ -94,9 +133,53 @@
                 align-items: center;
                 font-family: "Caveat", cursive;
                 font-size: 2em;
+                .buy-button {
+                    border: none;
+                    background-color: rgba(0, 0, 0, 0);
+                    background-image: url('/images/secondary-button.webp');
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 150px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                    padding: 10px;
+                    font-size: 25px;
+                    font-family: "Caveat", cursive;
+                    color: #722539;
+                    font-weight: 700;
+                    text-decoration: none;
+                }
+                .buy-button:hover {
+                    background-image: url('/images/secondary-button-hover.webp');
+                }
             }
         }
         
     }
     
+}
+
+// Media Queries Start
+@media screen and (max-width: 768px) {
+    .top-single-craft-container {
+        flex-direction: column;
+        align-items: center;
+        h1 {
+            margin-top: 100px;
+        }
+    }
+    .bottom-single-craft-container {
+        flex-direction: column;
+        .left-single-craft-container, 
+        .right-single-craft-container {
+            width: 100%;
+            height: 80%;
+        }
+        .left-single-craft-container {
+            margin-top: 200px;
+        }
+    }
 }
