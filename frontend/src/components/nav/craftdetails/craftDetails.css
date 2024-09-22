@@ -2,15 +2,140 @@ h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.craft-info-container {
-  width: 20%;
-  background-color: rgb(213, 178, 178);
+.card-posts-cont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 11% 8% 11%;
 }
-.craft-info-container .card-img {
-  width: 200px;
-  height: 200px;
+.card-posts-cont img {
+  width: 100%;
+  height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+}
+.card-posts-cont .craft-details {
+  width: 100%;
+  background-color: white;
+  box-shadow: 8px 8px 13px 0px rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+}
+.card-posts-cont .craft-details .craft-info-container {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+.card-posts-cont .craft-details .craft-info-container .craft-top-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-posts-cont .craft-details .craft-info-container .craft-top-info-container h4 {
+  font-size: 30px;
+  font-family: "Caveat", cursive;
+}
+.card-posts-cont .craft-details .craft-info-container .craft-top-info-container h6 {
+  font-size: 30px;
+  font-family: "Caveat", cursive;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container {
+  font-size: 20px;
+  font-family: "Caveat", cursive;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #edit {
+  position: relative;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #edit .craft-edit-btn {
+  width: 40px;
+  height: 50px;
+  background-image: url(/images/edit-button.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+  position: relative;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #edit:hover .edit-hover-img {
+  width: 40px;
+  height: 50px;
+  background-image: url(/images/pink-hover.webp);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #delete {
+  position: relative;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #delete .craft-delete-btn {
+  width: 40px;
+  height: 50px;
+  background-image: url(/images/delete-button-icon.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+  position: relative;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #delete:hover .delete-hover-img {
+  width: 40px;
+  height: 50px;
+  background-image: url(/images/pink-hover.webp);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container:hover {
+  cursor: pointer;
+}
+.card-posts-cont .craft-details .craft-info-container .icons-and-time-created {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-posts-cont .craft-details .craft-info-container .icons-and-time-created .created-time {
+  text-align: right;
+  font-weight: 600;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-container {
+  width: 100%;
+  height: auto;
+  background-image: url(/images/see-more-btn.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-container button {
+  width: 100%;
+  color: black;
+}
+.card-posts-cont .craft-details .craft-info-container .project-bottom-container:hover {
+  background-image: url(/images/see-more-btn-hover.png);
+}
+
+@media screen and (max-width: 768px) {
+  .card-posts-cont {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 425px) {
+  .card-posts-cont {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }/*# sourceMappingURL=craftDetails.css.map */

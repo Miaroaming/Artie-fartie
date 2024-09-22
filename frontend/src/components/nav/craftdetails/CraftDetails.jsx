@@ -208,8 +208,8 @@ const CraftDetails = ({ craft }) => {
       (
         <div className='craft-info-container'>
 
-            { craft.image && (
-              <img src={`http://localhost:4000/public/uploads/${ craft.image }`} alt='craft' />
+            { craft.imageURL && (
+              <img src={`http://localhost:4000/public/uploads/${ craft.imageURL }`} alt='craft' />
             )}
 
             <div className='craft-top-info-container'>
@@ -227,21 +227,26 @@ const CraftDetails = ({ craft }) => {
 
               </div>
 
-              <div onClick={ handleDelete } className='craft-detail-button-container delete-button'>
-                <div className='craft-detail-button-img'>Delete</div>
-                <div className='craft-detail-button-img-hover'></div>
-              </div>
+              <div className='icons-and-time-created'>
+                <div className='craft-detail-button-container'>
 
-              <div onClick={ handleEdit } className='craft-detail-button-container edit-button'>
+                  <div onClick={ handleEdit } id='edit'>
+                    <div className='edit-hover-img'></div>
+                    <div className='craft-edit-btn'></div>
+                    
+                  </div>
 
-                <div className='craft-detail-button-img'>Edit</div>
-                <div className='craft-detail-button-img-hover'></div>
+                  <div onClick={ handleDelete } id='delete'>
+                    <div className='delete-hover-img'></div>
+                    <div className='craft-delete-btn'></div>
+                  </div>
 
-              </div>
+                  </div>
 
-              <div className='project-bottom-right-container'>
-                <p>{ formatDistanceToNow( new Date( craft.createdAt ),{ includeSeconds: true }, { addSuffix: true })} ago
-                </p>
+                  <div className='created-time'>
+                    <p>Posted: <br /> { formatDistanceToNow( new Date( craft.createdAt ),{ includeSeconds: true }, { addSuffix: true })} ago
+                    </p>
+                  </div>
               </div>
 
               <div className='project-bottom-container'>

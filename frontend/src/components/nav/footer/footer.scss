@@ -5,11 +5,14 @@
 }
 
 .footer {
-    background-color: #C4AF87;
+    background-color: #D1B67A;
     height: 50px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
     font-family: "Caveat", cursive;
+    position: fixed;
+    bottom: 0;
 }
