@@ -48,14 +48,13 @@ h1 {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  padding: 10px;
 }
 .card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #edit {
   position: relative;
 }
 .card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #edit .craft-edit-btn {
-  width: 40px;
-  height: 50px;
+  width: 30px;
+  height: 40px;
   background-image: url(/images/edit-button.webp);
   background-position: center;
   background-repeat: no-repeat;
@@ -64,8 +63,8 @@ h1 {
   position: relative;
 }
 .card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #edit:hover .edit-hover-img {
-  width: 40px;
-  height: 50px;
+  width: 30px;
+  height: 40px;
   background-image: url(/images/pink-hover.webp);
   background-size: contain;
   background-position: center;
@@ -79,8 +78,8 @@ h1 {
   position: relative;
 }
 .card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #delete .craft-delete-btn {
-  width: 40px;
-  height: 50px;
+  width: 30px;
+  height: 40px;
   background-image: url(/images/delete-button-icon.webp);
   background-position: center;
   background-repeat: no-repeat;
@@ -89,8 +88,8 @@ h1 {
   position: relative;
 }
 .card-posts-cont .craft-details .craft-info-container .project-bottom-info-container .craft-detail-button-container #delete:hover .delete-hover-img {
-  width: 40px;
-  height: 50px;
+  width: 30px;
+  height: 40px;
   background-image: url(/images/pink-hover.webp);
   background-size: contain;
   background-position: center;
@@ -108,6 +107,7 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
 .card-posts-cont .craft-details .craft-info-container .icons-and-time-created .created-time {
   text-align: right;

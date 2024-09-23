@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLogin } from '../../hooks/useLogin';
 import './login.scss';
+import {useLogin} from '../hooks/useLogin';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const {login, error, isLoading} = useLogin();
     
     // States for different screen sizes
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1350);
@@ -46,17 +48,13 @@ const Login = () => {
             return;
         }
 
-        try {
-            // Attempt to log in
-            await login(email, password);  
 
-            // If login is successful, clear the error message and navigate to home
-            setErrorMessage('');
+        await login(email, password);
+
+        if (!error) {
             navigate('/');
-        } catch (error) {
-            // Show error if login fails
-            setErrorMessage('Login failed. Please check your credentials.');
-            console.error(error);
+        } else {
+            setErrorMessage(error);
         }
     };
 
@@ -112,7 +110,8 @@ const Login = () => {
                         </div>
 
                         <div className='login-button'>
-                            <button className='add-post-btn'>Login</button>
+                            <button className='add-post-btn' disabled={isLoading}>Login</button>
+                            {error && <div className="error">{error}</div>}
                         </div>
 
                         {/* Display error message */}
