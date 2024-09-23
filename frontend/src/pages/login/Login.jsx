@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLogin } from '../../hooks/useLogin';
 import './login.scss';
-import {useLogin} from '../hooks/useLogin';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -16,7 +15,6 @@ const Login = () => {
     const [isPhone, setIsPhone] = useState(window.innerWidth <= 600);
 
     const navigate = useNavigate();
-    const { login } = useLogin(); // Make sure to destructure login
 
     // Handle screen resize events
     useEffect(() => {
