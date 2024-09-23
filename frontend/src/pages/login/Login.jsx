@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLogin } from '../../hooks/useLogin';
 import './login.scss';
 import {useLogin} from '../hooks/useLogin';
 
@@ -15,6 +16,7 @@ const Login = () => {
     const [isPhone, setIsPhone] = useState(window.innerWidth <= 600);
 
     const navigate = useNavigate();
+    const { login } = useLogin(); // Make sure to destructure login
 
     // Handle screen resize events
     useEffect(() => {
@@ -30,27 +32,34 @@ const Login = () => {
         };
     }, []);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setErrorMessage('');
 
+    const handleSubmit = async (e) => {  
+        e.preventDefault();
+
+        // Check if email and password are filled
         if (!email || !password) {
             setErrorMessage('Email and password are required.');
             return;
         }
 
+        // Validate password using regex
         const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
         if (!passwordRegex.test(password)) {
             setErrorMessage('Password must be at least 8 characters long, include one special character, one uppercase letter, and one number.');
             return;
         }
 
-        await login(email, password);
+        try {
+            // Attempt to log in
+            await login(email, password);  
 
-        if (!error) {
+            // If login is successful, clear the error message and navigate to home
+            setErrorMessage('');
             navigate('/');
-        } else {
-            setErrorMessage(error);
+        } catch (error) {
+            // Show error if login fails
+            setErrorMessage('Login failed. Please check your credentials.');
+            console.error(error);
         }
     };
 
@@ -72,12 +81,12 @@ const Login = () => {
                         className='card-image'
                         src={
                             isPhone
-                                ? '../../../public/images/signup-login-phone.png' // Phone image
+                                ? '../../../public/images/signup-login-phone.png'
                                 : isTablet
-                                ? '../../../public/images/signup-login-tablet.png' // Tablet image
+                                ? '../../../public/images/signup-login-tablet.png'
                                 : isSmallScreen
-                                ? '../../../public/images/signup-login-small-screen.png' // Small screen image
-                                : '../../../public/images/signup-login.png' // Default image
+                                ? '../../../public/images/signup-login-small-screen.png'
+                                : '../../../public/images/signup-login.png'
                         }
                         alt='card-background'
                     />
