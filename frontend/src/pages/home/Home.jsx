@@ -13,6 +13,9 @@ const Home = () => {
   const {crafts, dispatch} = useCraftsContext()
   const [myCrafts, setMyCrafts] = useState(null)
   const [showForm, setShowForm] = useState(false);
+  const [ selectedType, setSelectedType ] = useState('');
+  const user = JSON.parse(localStorage.getItem('user'));
+  const user_id = user?.email; // Check if user exists before accessing email
 
   const handleMyCrafts = () => {
     setMyCrafts(true)
@@ -26,6 +29,16 @@ const Home = () => {
     setShowForm(!showForm);
   };
 
+  const handleTypeChange = (e) => {
+    setSelectedType(e.target.value);
+  };
+
+  const filteredCrafts = crafts && crafts.filter((craft) => {
+    const matchesType = selectedType === '' || craft.type === selectedType;
+    const matchesMyCrafts = !myCrafts || craft.user_id === user_id;
+    return matchesType && matchesMyCrafts;
+  });
+  
   useEffect(() => {
     const fetchCrafts = async () => {
 
@@ -46,7 +59,7 @@ const Home = () => {
 
     <div className='home'>
       <div className='cardboard-header'>
-        <img className='home-title-img' src="/images/home-title-img.webp" alt="" />
+        <img className='home-title-img' src='/images/home-title-img.webp' alt='' />
       </div>
       
       <div className='crafts'>
@@ -60,8 +73,10 @@ const Home = () => {
               <button onClick={handleAllCrafts}>All Crafts</button>
             </div>
             <div className='craft-btn-image'>
-              <select>
-              <option value="all">All Types</option>
+              <select
+               value={ selectedType }
+               onChange={ handleTypeChange }>
+              <option value="">All Types</option>
               <option value="Crochet">Crochet</option>
               <option value="Embroidery">Embroidery</option>
               <option value="Jewellery">Jewellery</option>
@@ -77,35 +92,17 @@ const Home = () => {
           </div>
           
           
-        </div>
-        {showForm && (
-        <CraftForm/>
-        )}
-        </div>
+          </div>
+          {showForm && (
+          <CraftForm/>
+          )}
+          </div>
 
-        <div className='card-posts-cont'>
-        
-
-        
-          
-          {myCrafts ? (crafts && crafts.map((craft) => {
-            const user = JSON.parse(localStorage.getItem('user'))
-            const user_id = user.email
-              if (craft.user_id === user_id) {
-                return (
-                
-                    <CraftDetails key={craft._id} craft={craft}/>
-                  
-                )
-              }
-            })) :  ( crafts && crafts.map (( craft ) => {
-                  return (
-                        <CraftDetails key={ craft._id } craft={craft}/>
-                  )
-              }))}
-        </div>
-        
-        
+          <div className='card-posts-cont'>
+            {filteredCrafts && filteredCrafts.map((craft) => (
+              <CraftDetails key={craft._id} craft={craft} />
+            ))}
+          </div>
         
     </div>
 

@@ -112,6 +112,7 @@ const CraftForm = () => {
                             onChange={( e ) => setType( e.target.value )}
                             value={ type }
                         >
+                            <option value=''>Select a Type</option>
                             <option value='Crochet'>Crochet</option>
                             <option value='Embroidery'>Embroidery</option>
                             <option value='Painting'>Painting</option>
