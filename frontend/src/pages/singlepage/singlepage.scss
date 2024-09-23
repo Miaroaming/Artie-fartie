@@ -7,6 +7,7 @@
 
 .comments-title {
     width: 80%;
+    margin-top: 30px;
 }
 
 .comments-container {
@@ -20,6 +21,10 @@
 .top-comments,
 .bottom-comments {
     width: 80%;
+}
+
+.bottom-comments {
+    margin-bottom: 30px;
 }
 
 .comments {
@@ -114,7 +119,6 @@
 .comment span {
     position: absolute;
     top: 35%;
-    left: 65%;
     z-index: 1;
     color: black;
 }
@@ -132,9 +136,10 @@
 
 .comment span {
     margin-top: 17%;
-    right: 2%;
-    font-size: 14px;
+    right: 5%;
+    font-size: 20px;
     color: #000000;
+    text-align: right;
 }
 
 .single-craft-container {
@@ -197,7 +202,6 @@
     }
     .bottom-single-craft-container {
         width: 100%;
-        height: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -321,5 +325,62 @@
             margin-top: 200px;
         }
     }
+
+
+.comment h5 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 1;
+    color: black;
+}
+
+.comment span {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    z-index: 1;
+    color: black;
+}
+
+.comment h5 {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.comment p {
+    margin-top: 9%;
+    font-size: 18px;
+    width: 80%;
+}
+
+.comment span {
+    margin-top: 17%;
+    font-size: 12px;
+    color: #000000;
+}
+
+.add-comment label {
+    top: 20%;
+    left: 20%;
+    font-size: 30px;
+}
+
+.add-comment input {
+    font-family: "Caveat", cursive;
+    top: 40%;
+    width: 60%;
+    font-size: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.add-comment button {
+    top: 60%;
+    font-size: 20px;
+}
+
 }
 

@@ -32,13 +32,14 @@ const Login = () => {
 
     const handleSubmit = async (e) => {  // Mark the function as async
         e.preventDefault();
-        navigate('/');
 
+        // Check if email and password are filled
         if (!email || !password) {
             setErrorMessage('Email and password are required.');
             return;
         }
 
+        // Validate password using regex
         const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
         if (!passwordRegex.test(password)) {
             setErrorMessage('Password must be at least 8 characters long, include one special character, one uppercase letter, and one number.');
@@ -46,10 +47,15 @@ const Login = () => {
         }
 
         try {
-            await login(email, password);  // Ensure the await is used correctly
-            console.log("Form submitted");
+            // Attempt to log in
+            await login(email, password);  
+
+            // If login is successful, clear the error message and navigate to home
+            setErrorMessage('');
+            navigate('/');
         } catch (error) {
-            setErrorMessage('Login failed.');
+            // Show error if login fails
+            setErrorMessage('Login failed. Please check your credentials.');
             console.error(error);
         }
     };
