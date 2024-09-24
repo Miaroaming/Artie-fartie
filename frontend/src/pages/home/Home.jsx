@@ -7,6 +7,7 @@ import CraftDetails from '../../components/nav/craftdetails/CraftDetails'
 // scss import
 import './home.scss'
 
+const baseURL = import.meta.env.VITE_API_BASE_URL
 
 // Start of Home functionality
 const Home = () => {
@@ -45,7 +46,7 @@ const Home = () => {
   useEffect(() => {
     const fetchCrafts = async () => {
 
-      const response = await axios.get('http://localhost:4000/api/crafts')
+      const response = await axios.get(`${baseURL}/api/crafts/`)
 
       if (response.status === 200) {
         console.log(response.data)

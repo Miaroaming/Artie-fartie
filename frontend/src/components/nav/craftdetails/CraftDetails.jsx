@@ -6,6 +6,8 @@ import { useCraftsContext } from '../../../hooks/useCraftsContext'
 import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
 import { useNavigate } from 'react-router-dom'
 
+const baseURL = import.meta.env.VITE_API_BASE_URL
+
 // Craft Details function
 const CraftDetails = ({ craft }) => {
 
@@ -15,7 +17,7 @@ const CraftDetails = ({ craft }) => {
   const navigate = useNavigate();
 
   const handleDelete = async () => {
-    const response = await axios.delete ( `http://localhost:4000/api/crafts/${ craft._id }` )
+    const response = await axios.delete ( `${baseURL}/api/crafts/${ craft._id }` )
     const json = await response.data
 
     if( response.status === 200 ) {
@@ -67,7 +69,7 @@ const CraftDetails = ({ craft }) => {
   
     try {
       const response = await axios.patch(
-        `http://localhost:4000/api/crafts/${ craft._id }`,
+        `${baseURL}/api/crafts/${ craft._id }`,
         updatedCraft
       );
       const updatedData = response.data;
@@ -217,7 +219,7 @@ const CraftDetails = ({ craft }) => {
         <div className='craft-info-container'>
 
             { craft.imageURL && (
-              <img src={`http://localhost:4000/public/uploads/${ craft.imageURL }`} alt='craft' />
+              <img src={`${baseURL}/public/uploads/${ craft.imageURL }`} alt='craft' />
             )}
 
             <div className='craft-top-info-container'>

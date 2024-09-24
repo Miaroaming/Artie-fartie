@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns/formatDistanceToNow';
 import './singlepage.scss';
 
+const baseURL = import.meta.env.VITE_API_BASE_URL
+
 const SinglePage = () => {
   const navigate = useNavigate();
   const MAX_COMMENT_LENGTH = 60;
@@ -40,7 +42,7 @@ const SinglePage = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/comments/crafts/${craft._id}/comments`,
+        `${baseURL}/api/comments/crafts/${craft._id}/comments`,
         {
           text: commentText,
           user_id: user_id,
@@ -60,7 +62,7 @@ const SinglePage = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/api/crafts/${id}`)
+    axios.get(`${baseURL}/api/crafts/${id}`)
       .then((res) => {
         console.log(res.data);
         setCraft(res.data);
@@ -98,7 +100,7 @@ const SinglePage = () => {
       <div className='bottom-single-craft-container'>
         <div className='left-single-craft-container'>
           {craft.imageURL && (
-            <img src={`http://localhost:4000/public/uploads/${craft.imageURL}`} alt='craft' />
+            <img src={`${baseURL}/public/uploads/${craft.imageURL}`} alt='craft' />
           )}
 
           <div className='bottom-left-single-craft-container'>
@@ -126,7 +128,7 @@ const SinglePage = () => {
       </div>
 
       <div className='comments-section'>
-        <img className='comments-title' src='../../../public/images/comments-title-img.webp' alt='Comments Title Image' />
+        <img className='comments-title' src='../../../images/comments-title-img.webp' alt='Comments Title Image' />
         
         <button onClick={() => setShowComments(!showComments)}>
           {showComments ? 'Hide Comments' : 'Show comments'}
@@ -134,7 +136,7 @@ const SinglePage = () => {
 
         {showComments && (
           <>
-            <img className='top-comments' src='../../../public/images/top-comments.webp' alt="top comment border" />
+            <img className='top-comments' src='../../../images/top-comments.webp' alt="top comment border" />
             <div className='comments-container'>
               <div className='add-comment'>
                 <img 
