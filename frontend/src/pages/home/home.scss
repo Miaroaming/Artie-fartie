@@ -113,3 +113,21 @@
 .add-craft-btn:hover {
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    
+        #three-btns {
+            display: flex;
+            flex-direction: column !important;
+    }
+
+    #craft-btn-image {
+        background-image: url(/images/black-btn.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+
+}
