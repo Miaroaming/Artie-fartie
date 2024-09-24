@@ -35,7 +35,7 @@ const craftSchema = new Schema({
     anonymous: {
         type: Boolean
     },
-    materials: {
+    material: {
         type: String
     },
     user_id: {

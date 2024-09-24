@@ -211,9 +211,9 @@
             display: flex;
             flex-direction: column;
             width: 43%;
-            height: 90%;
+            height: 690px;
             border-radius: 5px;
-            padding: 20px;
+            padding: 30px;
         }
         .left-single-craft-container {
             background-color: #ffffff;
@@ -223,9 +223,9 @@
             gap: 10px;
             img {
                 width: 100%;
-                height: 90%;
+                height: 600px;
                 border-radius: 5px;
-                object-fit: contain;
+                object-fit: cover;
                 object-position: center;
             }
             .bottom-left-single-craft-container {
@@ -242,10 +242,9 @@
         }
         .right-single-craft-container {
             background-color: #D1B67A;
-            display: flex;
-            flex-direction: column;
             justify-content: space-between;
             gap: 20px;
+            max-height: 690px;
             .right-top-single-craft-container {
                 display: flex;
                 flex-direction: column;
@@ -253,7 +252,7 @@
                 position: relative;
                 font-family: "Caveat", cursive;
                 h3 {
-                    font-size: 1.7em;
+                    font-size: 35px;
                 }
                 .for-sale {
                     position: absolute;
@@ -262,20 +261,20 @@
                     font-family: "Caveat", cursive;
                 }
                 h6 {
-                    font-size: 1.1em;
+                    font-size: 25px;
                 }
                 
             }
             p {
                 font-family: "Caveat", cursive;
-                font-size: 1.2em;
+                font-size: 25px;
             }
             .right-bottom-single-craft-container {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 font-family: "Caveat", cursive;
-                font-size: 2em;
+                font-size: 30px;
                 .buy-button {
                     border: none;
                     background-color: rgba(0, 0, 0, 0);
