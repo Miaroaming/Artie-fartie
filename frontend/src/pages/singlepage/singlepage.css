@@ -7,6 +7,7 @@
 
 .comments-title {
   width: 80%;
+  margin-top: 30px;
 }
 
 .comments-container {
@@ -20,6 +21,10 @@
 .top-comments,
 .bottom-comments {
   width: 80%;
+}
+
+.bottom-comments {
+  margin-bottom: 30px;
 }
 
 .comments {
@@ -114,7 +119,6 @@
 .comment span {
   position: absolute;
   top: 35%;
-  left: 65%;
   z-index: 1;
   color: black;
 }
@@ -132,9 +136,10 @@
 
 .comment span {
   margin-top: 17%;
-  right: 2%;
-  font-size: 14px;
+  right: 5%;
+  font-size: 20px;
   color: #000000;
+  text-align: right;
 }
 
 .single-craft-container {
@@ -196,7 +201,6 @@
 }
 .single-craft-container .bottom-single-craft-container {
   width: 100%;
-  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,9 +211,9 @@
   display: flex;
   flex-direction: column;
   width: 43%;
-  height: 90%;
+  height: 690px;
   border-radius: 5px;
-  padding: 20px;
+  padding: 30px;
 }
 .single-craft-container .bottom-single-craft-container .left-single-craft-container {
   background-color: #ffffff;
@@ -220,10 +224,10 @@
 }
 .single-craft-container .bottom-single-craft-container .left-single-craft-container img {
   width: 100%;
-  height: 90%;
+  height: 600px;
   border-radius: 5px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
@@ -240,10 +244,9 @@
 }
 .single-craft-container .bottom-single-craft-container .right-single-craft-container {
   background-color: #D1B67A;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
   gap: 20px;
+  max-height: 690px;
 }
 .single-craft-container .bottom-single-craft-container .right-single-craft-container .right-top-single-craft-container {
   display: flex;
@@ -253,7 +256,7 @@
   font-family: "Caveat", cursive;
 }
 .single-craft-container .bottom-single-craft-container .right-single-craft-container .right-top-single-craft-container h3 {
-  font-size: 1.7em;
+  font-size: 35px;
 }
 .single-craft-container .bottom-single-craft-container .right-single-craft-container .right-top-single-craft-container .for-sale {
   position: absolute;
@@ -262,18 +265,18 @@
   font-family: "Caveat", cursive;
 }
 .single-craft-container .bottom-single-craft-container .right-single-craft-container .right-top-single-craft-container h6 {
-  font-size: 1.1em;
+  font-size: 25px;
 }
 .single-craft-container .bottom-single-craft-container .right-single-craft-container p {
   font-family: "Caveat", cursive;
-  font-size: 1.2em;
+  font-size: 25px;
 }
 .single-craft-container .bottom-single-craft-container .right-single-craft-container .right-bottom-single-craft-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "Caveat", cursive;
-  font-size: 2em;
+  font-size: 30px;
 }
 .single-craft-container .bottom-single-craft-container .right-single-craft-container .right-bottom-single-craft-container .buy-button {
   border: none;
@@ -316,5 +319,52 @@
   }
   .bottom-single-craft-container .left-single-craft-container {
     margin-top: 200px;
+  }
+  .comment h5 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 1;
+    color: black;
+  }
+  .comment span {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    z-index: 1;
+    color: black;
+  }
+  .comment h5 {
+    font-weight: bold;
+    font-size: 28px;
+  }
+  .comment p {
+    margin-top: 9%;
+    font-size: 18px;
+    width: 80%;
+  }
+  .comment span {
+    margin-top: 17%;
+    font-size: 12px;
+    color: #000000;
+  }
+  .add-comment label {
+    top: 20%;
+    left: 20%;
+    font-size: 30px;
+  }
+  .add-comment input {
+    font-family: "Caveat", cursive;
+    top: 40%;
+    width: 60%;
+    font-size: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+  }
+  .add-comment button {
+    top: 60%;
+    font-size: 20px;
   }
 }/*# sourceMappingURL=singlepage.css.map */

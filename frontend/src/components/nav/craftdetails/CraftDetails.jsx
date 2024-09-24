@@ -29,11 +29,10 @@ const CraftDetails = ({ craft }) => {
   const [ editTitle, setEditTitle ] = useState( craft.title );
   const [ editType, setEditType ] = useState( craft.type );
   const [ editDescription, setEditDescription ] = useState( craft.description );
-  const [ editMaterial, setEditMaterial ] = useState( craft.material );
+  const [ editMaterial, setEditMaterial ] = useState( craft.material || '' );
   const [ editPrice, setEditPrice ] = useState( craft.price );
   const [ editNotForSale, setEditNotForSale ] = useState( craft.notForSale );
   const [ editAnonymous, setEditAnonymous ] = useState( craft.anonymous );
-  const [ editImageURL, setEditImageURL ] = useState( craft.imageURL );
 
   const handleNavigate = () => {
     let path = `/${ craft._id }`
@@ -52,7 +51,6 @@ const CraftDetails = ({ craft }) => {
     setEditPrice( craft.price );
     setEditNotForSale( craft.notForSale );
     setEditAnonymous( craft.anonymous );
-    setEditImageURL( craft.imageURL );
     setIsEditing( false );
   };
 
@@ -64,8 +62,7 @@ const CraftDetails = ({ craft }) => {
       material: editMaterial,
       price: editPrice,
       notForSale: editNotForSale,
-      anonymous: editAnonymous,
-      imageURL: editImageURL
+      anonymous: editAnonymous
     };
   
     try {
@@ -98,17 +95,21 @@ const CraftDetails = ({ craft }) => {
             <div className='edit-input-container'>
 
               <label>Edit Exercise Title:</label>
+              <div className='box-input-edit'>
               <input
                 type='text'
                 value={ editTitle }
                 onChange={( e ) => setEditTitle( e.target.value )}
               />
+              </div>
+              
 
             </div>
 
             <div className='edit-input-container'>
 
               <label>Edit Type</label>
+              <div className='box-input-edit'>
               <select 
                 onChange={( e ) => setEditType( e.target.value )}
                 value={ editType }
@@ -120,13 +121,15 @@ const CraftDetails = ({ craft }) => {
                 <option value='Jewellery'>Jewellery</option>
                 <option value='Other'>Other</option>
               </select>
+              </div>
+              
               
             </div> 
 
             <div className='edit-input-container'>
 
               <label className='craft-post-label'>Description:</label>
-              <div className='box-background'>
+              <div className='box-input-edit'>
 
                 <input 
                     type='text'
@@ -142,12 +145,12 @@ const CraftDetails = ({ craft }) => {
 
               <label className='craft-post-label'>Materials:</label>
 
-              <div className='box-background'>
+              <div className='box-input-edit'>
 
                 <input 
                     type='text'
                     onChange={( e ) => setEditMaterial(e.target.value )}
-                    value={ editMaterial }
+                    value={ editMaterial || ''}
                 />
 
               </div>
@@ -156,31 +159,24 @@ const CraftDetails = ({ craft }) => {
 
             <div className='edit-input-container'>
 
+              <div className='edit-checkbox-cont'>
               <input 
                 type='checkbox'
                 onChange={( e ) => setEditNotForSale( e.target.value )}
                 value={ editNotForSale }
               />
               <label className='craft-post-label'>Not For Sale</label>
+              </div>
+              
+              
               
             </div>
 
-            <div className='edit-input-container'>
-
-              <label className='craft-post-label'>Image:</label>
-              <input 
-                id='image-upload'
-                type='file'
-                onChange={( e ) => setEditImageURL( e.target.files[ 0 ] )}
-                accept='image/*'
-              />
-              
-            </div>
 
             <div className='edit-input-container'>
 
               <label className='craft-post-label'>Price: ($)</label>
-                <div className='box-background'>
+                <div className='box-input-edit'>
                   <input 
                     type='number'
                     onChange={( e ) => setEditPrice( e.target.value )}
@@ -191,18 +187,28 @@ const CraftDetails = ({ craft }) => {
             </div>
             
             <div className='edit-input-container'>
-
+              <div className='edit-checkbox-cont'>
               <input 
                 type='checkbox'
                 onChange={( e ) => setEditAnonymous( e.target.value )}
                 value={ editAnonymous }
               />
               <label className='craft-post-label'>Post Anonymously</label>
+              </div>
+              
               
             </div>
   
-            <button onClick={ handleSubmitEdit }>Save</button>
-            <button onClick={ handleCancelEdit }>Cancel</button>
+            <div className='edit-btns-cont'>
+              <div className='edit-btn'>
+                <button onClick={ handleSubmitEdit }>Save</button>
+              </div>
+            <div className='edit-btn'>
+              <button onClick={ handleCancelEdit }>Cancel</button>
+            </div>
+            
+            </div>
+            
 
           </div>
         </>

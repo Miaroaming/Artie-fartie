@@ -5,10 +5,10 @@ h1 {
 .card-posts-cont {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3%;
+  gap: 60px;
   justify-content: center;
   align-items: center;
-  padding: 1% 11% 8% 11%;
+  padding: 1% 11% 5% 11%;
 }
 .card-posts-cont img {
   width: 100%;
@@ -21,6 +21,76 @@ h1 {
   background-color: white;
   box-shadow: 8px 8px 13px 0px rgba(0, 0, 0, 0.35);
   border-radius: 2px;
+}
+.card-posts-cont .craft-details .edit-modal {
+  padding: 10px;
+}
+.card-posts-cont .craft-details .edit-modal .edit-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.card-posts-cont .craft-details .edit-modal .edit-input-container label {
+  font-size: 25px;
+}
+.card-posts-cont .craft-details .edit-modal .edit-input-container .box-input-edit {
+  width: 100%;
+  background-image: url(/images/input-text-img.webp);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+.card-posts-cont .craft-details .edit-modal .edit-input-container .box-input-edit input, .card-posts-cont .craft-details .edit-modal .edit-input-container .box-input-edit select {
+  background-color: transparent;
+  border: none;
+  font-family: "Caveat", cursive;
+  font-size: 20px;
+  width: 55%;
+  text-align: left;
+}
+.card-posts-cont .craft-details .edit-modal .edit-input-container .box-input-edit input:focus,
+.card-posts-cont .craft-details .edit-modal .edit-input-container .box-input-edit select:focus {
+  border: none;
+  outline: none;
+}
+.card-posts-cont .craft-details .edit-modal .edit-checkbox-cont {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+.card-posts-cont .craft-details .edit-modal .edit-checkbox-cont input {
+  width: 25px;
+}
+.card-posts-cont .craft-details .edit-modal .edit-checkbox-cont label {
+  font-size: 25px;
+}
+.card-posts-cont .craft-details .edit-modal .edit-btns-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+.card-posts-cont .craft-details .edit-modal .edit-btns-cont .edit-btn {
+  width: 40%;
+  background-image: url(/images/black-btn.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-posts-cont .craft-details .edit-modal .edit-btns-cont .edit-btn button {
+  color: black;
+  width: 100%;
+}
+.card-posts-cont .craft-details .edit-modal .edit-btns-cont .edit-btn:hover {
+  background-image: url(/images/black-btn-hover.png);
 }
 .card-posts-cont .craft-details .craft-info-container {
   width: 100%;

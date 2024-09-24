@@ -109,13 +109,13 @@ const SinglePage = () => {
 
         <div className='right-single-craft-container'>
           <div className='right-top-single-craft-container'>
-            <h3>{craft.type}</h3>
+            <h3>Type of craft: {craft.type}</h3>
             <h3 className='for-sale'>For Sale</h3>
-            <h6>Created by:</h6>
-            <p>{craft.description}</p>
+            <h6>Created by: {craft.user_id}</h6>
           </div>
-
-          <p>{craft.materials}</p>
+          
+          <p><strong>Description:</strong> <br /> {craft.description}</p>
+          <p><strong>Materials:</strong> <br /> {craft.material}</p>
 
           <div className='right-bottom-single-craft-container'>
             <h6>Posted {formatDistanceToNow(new Date(craft.createdAt), { includeSeconds: true })} ago</h6>

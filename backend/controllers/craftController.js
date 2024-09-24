@@ -51,12 +51,12 @@ const getCraft = async ( req, res) => {
 // Post Craft
 
 const createCraft = async ( req, res) => {
-    const { title, type, description, price, notForSale, anonymous, materials, user_id} = req.body
+    const { title, type, description, price, notForSale, anonymous, material, user_id} = req.body
 
     const imageFilename = req.file ? req.file.filename : null;
 
     try {
-        const craft = await Craft.create({ title, type, description, price, notForSale, anonymous, materials, user_id, imageURL: imageFilename})
+        const craft = await Craft.create({ title, type, description, price, notForSale, anonymous, material, user_id, imageURL: imageFilename})
         res.status(200).json(craft)
     } 
     catch (error) {
@@ -91,9 +91,10 @@ const updateCraft = async ( req, res) => {
         return res.status(404).json({error: 'No such Craft'})
     }
 
-    const craft = await Craft.findOneAndUpdate({_id: id}, {
-        ...req.body
-    })
+    const craft = await Craft.findOneAndUpdate(
+        {_id: id}, 
+        {...req.body}
+    );
 
     if(!craft) {
         return res.status(404).json({error: 'No such Craft'})
