@@ -86,6 +86,7 @@ const CraftDetails = ({ craft }) => {
 
     return (
         <div className='craft-details'>
+      <div className='pin-post-img'/>
             {isEditing ? (
                 <>
                     <div className='edit-modal'>
