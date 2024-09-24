@@ -16,6 +16,7 @@ const CraftForm = () => {
     const [notForSale, setNotForSale] = useState(false);
     const [anonymous, setAnonymous] = useState(false);
     const [error, setError] = useState(null);
+    const [hideForm, setHideForm] = useState(true);
     
     const validateInputs = () => {
         if (!title || !description || !type || !material || (!notForSale && !price)) {
@@ -26,6 +27,7 @@ const CraftForm = () => {
         }
         return null;
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -79,6 +81,8 @@ const CraftForm = () => {
             setNotForSale(false);
             setAnonymous(false);
             setError(null);
+
+            setHideForm(false);
     
             console.log('New craft added', response.data);
             dispatch({ type: 'CREATE_CRAFTS', payload: response.data });
@@ -89,8 +93,11 @@ const CraftForm = () => {
         }
     };
 
+
     return (
         <>
+
+        {hideForm && (
             <div id='graphpaper'>
                 <div className='create-craft-post-container'>
                     <h3>Create your Craft</h3>
@@ -194,15 +201,18 @@ const CraftForm = () => {
                             />
                             <label className='craft-post-label'>Post Anonymously</label>
                         </div>
+                        
 
                         <div id='add-post-btn'>
-                            <button>Add Post</button>
+                            <button onClick={handleSubmit}>Add Post</button>
                         </div>
                     
                     </form>
                     {error && <div className='error'>{error}</div>}
                 </div>
+                
             </div>
+        )}
         </>
     );
 };
