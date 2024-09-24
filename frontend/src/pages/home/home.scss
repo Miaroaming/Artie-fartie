@@ -78,6 +78,7 @@
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
+                opacity: 1;
                 
                 .add-craft-btn:disabled {
                     opacity: 0.5;
@@ -94,7 +95,8 @@
                 background-image: url(/images/black-btn-hover.png);
             }
             #craft-btn-image:disabled:hover {
-                display: none;
+                opacity: 0.8;
+                background-image: url(/images/black-btn.png);
             }
         }
     }
