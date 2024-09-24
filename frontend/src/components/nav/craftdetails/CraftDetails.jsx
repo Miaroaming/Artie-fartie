@@ -5,6 +5,8 @@ import { useCraftsContext } from '../../../hooks/useCraftsContext';
 import { formatDistanceToNow } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 
+const baseURL = import.meta.env.VITE_API_BASE_URL
+
 // Craft Details function
 const CraftDetails = ({ craft }) => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -61,9 +63,9 @@ const CraftDetails = ({ craft }) => {
           notForSale: editNotForSale,
           anonymous: editAnonymous,
       };
-  
+ 
       try {
-          const response = await axios.patch(`http://localhost:4000/api/crafts/${craft._id}`, updatedCraft);
+          const response = await axios.patch(`${baseURL}/api/crafts/${craft._id}`, updatedCraft);
           if (response.status === 200) {
               const updatedData = response.data;
               dispatch({ type: 'UPDATE_CRAFT', payload: updatedData });
@@ -178,7 +180,7 @@ const CraftDetails = ({ craft }) => {
             ) : (
                 <div className='craft-info-container'>
                     {craft.imageURL && (
-                        <img src={`http://localhost:4000/public/uploads/${craft.imageURL}`} alt='craft' />
+                        <img src={`${baseURL}/public/uploads/${craft.imageURL}`} alt='craft' />
                     )}
 
                     <div className='craft-top-info-container'>

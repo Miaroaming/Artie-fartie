@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useCraftsContext } from '../../../hooks/useCraftsContext';
 import './craftForm.scss';
 
+const baseURL = import.meta.env.VITE_API_BASE_URL
+
 const CraftForm = () => {
     const { dispatch } = useCraftsContext();
     const [imageURL, setImageURL] = useState(null);
@@ -62,7 +64,7 @@ const CraftForm = () => {
         formData.append('user_id', user_id); // Send either anonymousID or user email
     
         try {
-            const response = await axios.post('http://localhost:4000/api/crafts/', formData, {
+            const response = await axios.post(`${baseURL}/api/crafts/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

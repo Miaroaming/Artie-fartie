@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import {useAuthContext} from './useAuthContext'
 
+const baseURL = import.meta.env.VITE_API_BASE_URL
+
 export const useSignup = () => {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
@@ -13,7 +15,7 @@ export const useSignup = () => {
         setError(null)
     
         try {
-            const response = await axios.post('http://localhost:4000/api/user/signup', 
+            const response = await axios.post(`${baseURL}/api/user/signup`, 
                 { email, password }, 
                 { headers: { 'Content-Type': 'application/json' } }
             );
