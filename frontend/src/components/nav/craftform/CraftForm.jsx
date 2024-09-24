@@ -27,19 +27,30 @@ const CraftForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         const validationError = validateInputs();
         if (validationError) {
             setError(validationError);
             return; // Exit if validation fails
         }
-
+    
+        // Get user from localStorage if exists
         const user = JSON.parse(localStorage.getItem('user'));
-        const user_id = user ? user.email : null;
-
+    
+        // Check if anonymous and generate/retrieve anonymous ID
+        let anonymousID = localStorage.getItem('anonymousID');
+        if (!anonymousID && anonymous) {
+            anonymousID = `anon-${Math.random().toString(36).substr(2, 9)}`; // Generate unique ID
+            localStorage.setItem('anonymousID', anonymousID); // Save anonymous ID in localStorage
+        }
+    
+        // Use anonymousID if user posts anonymously, otherwise use user email
+        const user_id = anonymous ? anonymousID : user?.email;
+    
+        // Prepare the form data to send to the server
         const formData = new FormData();
         formData.append('title', title);
-        formData.append('imageURL', imageURL); 
+        formData.append('imageURL', imageURL);
         formData.append('type', type);
         formData.append('description', description);
         formData.append('material', material);
@@ -48,16 +59,16 @@ const CraftForm = () => {
         formData.append('price', finalPrice);
         formData.append('notForSale', notForSale ? 'true' : 'false');
         formData.append('anonymous', anonymous ? 'true' : 'false');
-        formData.append('user_id', anonymous ? 'Anonymous' : user_id);
-
+        formData.append('user_id', user_id); // Send either anonymousID or user email
+    
         try {
             const response = await axios.post('http://localhost:4000/api/crafts/', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },
             });
-
-            // Reset form fields
+    
+            // Reset form fields after successful submission
             setTitle('');
             setType('');
             setDescription('');
@@ -66,10 +77,10 @@ const CraftForm = () => {
             setNotForSale(false);
             setAnonymous(false);
             setError(null);
-
-            console.log('new craft added', response.data);
+    
+            console.log('New craft added', response.data);
             dispatch({ type: 'CREATE_CRAFTS', payload: response.data });
-
+    
         } catch (error) {
             console.error(error.response ? error.response.data : error.message);
             setError(error.response ? error.response.data.message : error.message);

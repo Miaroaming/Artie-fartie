@@ -92,7 +92,7 @@ const SinglePage = () => {
     <div className='single-craft-container'>
       <div className='top-single-craft-container'>
         <button className='back-button' onClick={() => navigate(-1)}><span>Back</span></button>
-        <h1>user</h1>
+        <h1>{getEmailCharactersBeforeAtSymbol(craft.user_id)}'s {craft.title}</h1>
       </div>
 
       <div className='bottom-single-craft-container'>
@@ -111,7 +111,7 @@ const SinglePage = () => {
           <div className='right-top-single-craft-container'>
             <h3>Type of craft: {craft.type}</h3>
             <h3 className='for-sale'>For Sale</h3>
-            <h6>Created by: {craft.user_id}</h6>
+            <h6>Created by: {getEmailCharactersBeforeAtSymbol(craft.user_id)}</h6>
           </div>
           
           <p><strong>Description:</strong> <br /> {craft.description}</p>
