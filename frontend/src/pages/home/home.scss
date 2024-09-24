@@ -5,6 +5,11 @@
 }
 
 .home {
+    .my-crafts-title {
+        text-align: center;
+        font-family: 'Caveat', cursive;
+        font-size: 3em;
+    }
     .cardboard-header {
         background-image: url(/images/homeheader.png);
         background-position: center;
@@ -58,6 +63,10 @@
                     select:hover {
                         cursor: pointer;
                     }
+                    .my-craft-button:disabled {
+                        color: rgba(0, 0, 0, 0.5); /* Lower opacity only for the text */
+                        cursor: not-allowed;
+                    }
                 }
                 .craft-btn-image:hover {
                     background-image: url(/images/black-btn-hover.png);
@@ -69,11 +78,24 @@
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
+                
+                .add-craft-btn:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+                .add-craft-btn:disabled:hover {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+                
             }
+
             #craft-btn-image:hover {
                 background-image: url(/images/black-btn-hover.png);
             }
-            
+            #craft-btn-image:disabled:hover {
+                display: none;
+            }
         }
     }
     

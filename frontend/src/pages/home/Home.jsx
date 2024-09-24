@@ -16,13 +16,16 @@ const Home = () => {
   const [ selectedType, setSelectedType ] = useState('');
   const user = JSON.parse(localStorage.getItem('user'));
   const user_id = user?.email; // Check if user exists before accessing email
+  const [showMyCraftsTitle, setShowMyCraftsTitle] = useState(false);
 
   const handleMyCrafts = () => {
-    setMyCrafts(true)
+    setMyCrafts(true);
+    setShowMyCraftsTitle(true);
   }
 
   const handleAllCrafts = () => {
-    setMyCrafts(null)
+    setMyCrafts(null); 
+    setShowMyCraftsTitle(false);
   }
 
   const handleAddCrafts = () => {
@@ -67,15 +70,15 @@ const Home = () => {
         <div className='btns-cont'>
           <div id='three-btns'>
             <div className='craft-btn-image'>
-              <button onClick={handleMyCrafts}>My Crafts</button>
+              <button onClick={handleMyCrafts} disabled={!user} className='my-craft-button'>My Crafts</button>
             </div>
             <div className='craft-btn-image'>
               <button onClick={handleAllCrafts}>All Crafts</button>
             </div>
             <div className='craft-btn-image'>
               <select
-               value={ selectedType }
-               onChange={ handleTypeChange }>
+                value={ selectedType }
+                onChange={ handleTypeChange }>
               <option value="">All Types</option>
               <option value="Crochet">Crochet</option>
               <option value="Embroidery">Embroidery</option>
@@ -87,23 +90,23 @@ const Home = () => {
           </div>
           
 
-          <div id='craft-btn-image'>
-            <button className='add-craft-btn' onClick={handleAddCrafts}> {showForm ? "Cancel" : "Add Craft + "}</button>
-          </div>
-          
-          
-          </div>
-          {showForm && (
-          <CraftForm/>
-          )}
-          </div>
+        <div id='craft-btn-image' disabled={!user}>
+          <button className='add-craft-btn' onClick={handleAddCrafts} disabled={!user}> {showForm ? "Cancel" : "Add Craft + "}</button>
+        </div>
 
-          <div className='card-posts-cont'>
-            {filteredCrafts && filteredCrafts.map((craft) => (
-              <CraftDetails key={craft._id} craft={craft} />
-            ))}
-          </div>
-        
+        </div>
+        {showForm && (
+        <CraftForm/>
+        )}
+        </div>
+        {showMyCraftsTitle && <h2 className='my-crafts-title'>My Crafts</h2>}
+
+        <div className='card-posts-cont'>
+          {filteredCrafts && filteredCrafts.map((craft) => (
+            <CraftDetails key={craft._id} craft={craft} />
+          ))}
+      </div>
+
     </div>
 
   )
