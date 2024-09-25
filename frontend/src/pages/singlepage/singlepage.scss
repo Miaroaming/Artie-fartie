@@ -98,7 +98,14 @@
 
 .add-comment button {
     top: 70%;
-    font-size: 20px;
+    font-size: 25px;
+    background-image: url(/images/black-btn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.add-comment button:hover {
+    background-image: url(/images/black-btn-hover.png);
 }
 
 .comment {
