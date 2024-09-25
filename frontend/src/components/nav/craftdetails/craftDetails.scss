@@ -247,6 +247,11 @@ h1 {
     }
 }
 
+.posted {
+    font-size: 12px;
+    width: 100%;
+}
+
 @media screen and (max-width: 1000px) {
     .card-posts-cont {
         grid-template-columns: repeat(2, 1fr);

@@ -46,7 +46,7 @@ useEffect(() => {
             return;
         }
     
-        const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
         if (!passwordRegex.test(password)) {
             setErrorMessage('Password must be at least 8 characters long, include one special character, one uppercase letter, and one number');
             return;

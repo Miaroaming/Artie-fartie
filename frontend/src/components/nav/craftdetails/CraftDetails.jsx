@@ -27,9 +27,17 @@ const CraftDetails = ({ craft }) => {
     const [editNotForSale, setEditNotForSale] = useState(craft.notForSale);
     const [editAnonymous, setEditAnonymous] = useState(craft.anonymous);
 
+    const getEmailCharactersBeforeAtSymbol = (email) => {
+        if (!email) {
+          return 'Unknown';
+        }
+        const parts = email.split('@');
+        return parts.length > 1 ? parts[0] : email;
+      };
+
     const handleDelete = async () => {
       try {
-          const response = await axios.delete(`http://localhost:4000/api/crafts/${craft._id}`);
+          const response = await axios.delete(`${baseURL}/api/crafts/${craft._id}`);
           if (response.status === 200) {
               dispatch({ type: 'DELETE_CRAFT', payload: craft._id }); // Update state directly with ID
           }
@@ -71,7 +79,7 @@ const CraftDetails = ({ craft }) => {
               dispatch({ type: 'UPDATE_CRAFT', payload: updatedData });
               setIsEditing(false);
   
-              const refreshedCraftsResponse = await axios.get(`http://localhost:4000/api/crafts`);
+              const refreshedCraftsResponse = await axios.get(`${baseURL}/api/crafts`);
               if (refreshedCraftsResponse.status === 200) {
                   dispatch({ type: 'SET_CRAFTS', payload: refreshedCraftsResponse.data });
               }
@@ -205,11 +213,11 @@ const CraftDetails = ({ craft }) => {
                             ) : (
                                 <p>
                                     <strong>Created by: </strong>
-                                    {craft.user_id}
+                                    {getEmailCharactersBeforeAtSymbol(craft.user_id)}
                                 </p>
                             )}
                             <div className='created-time'>
-                                <p>
+                                <p className='posted'>
                                     Posted: <br />
                                     {formatDistanceToNow(new Date(craft.createdAt), {
                                         includeSeconds: true,
