@@ -96,7 +96,7 @@ const CraftDetails = ({ craft }) => {
 
     return (
         <div className='craft-details'>
-      <div className='pin-post-img'/>
+            <div className='pin-post-img'/>
             {isEditing ? (
                 <>
                     <div className='edit-modal'>
@@ -150,7 +150,7 @@ const CraftDetails = ({ craft }) => {
                             </div>
                         </div>
 
-                        <div className='edit-input-container'>
+                        <div className='edit-input-container edit-checkbox-cont' >
                             <input
                                 type='checkbox'
                                 checked={editNotForSale}
@@ -170,7 +170,7 @@ const CraftDetails = ({ craft }) => {
                             </div>
                         </div>
 
-                        <div className='edit-input-container'>
+                        <div className='edit-input-container edit-checkbox-cont'>
                             <input
                                 type='checkbox'
                                 checked={editAnonymous}
@@ -186,9 +186,9 @@ const CraftDetails = ({ craft }) => {
                     </div>
                 </>
             ) : (
-                <div className='craft-info-container'>
+                <div className='craft-info-container' >
                     {craft.imageURL && (
-                        <img src={`${baseURL}/public/uploads/${craft.imageURL}`} alt='craft' />
+                        <img src={`${baseURL}/public/uploads/${craft.imageURL}`} alt='craft' onClick={ handleNavigate }/>
                     )}
 
                     <div className='craft-top-info-container'>
@@ -228,7 +228,7 @@ const CraftDetails = ({ craft }) => {
                         </div>
 
                         <div className='project-bottom-container'>
-                            <button onClick={handleNavigate}>See more</button>
+                            <button onClick={ handleNavigate }>See more</button>
                         </div>
                     </div>
                 </div>

@@ -127,7 +127,7 @@ const SinglePage = () => {
             className='buy-button'
             onClick={() => window.location.href = `mailto:${craft.user_id}?subject=Interest in your craft: ${craft.title}&body=Hi, I am interested in purchasing your craft listed on [Your Platform Name]. Please provide further details.`}
           >
-            Buy Now
+            Contact
           </button>
         </div>
       </div>
@@ -136,7 +136,7 @@ const SinglePage = () => {
       <div className='comments-section'>
         <img className='comments-title' src='../../../images/comments-title-img.webp' alt='Comments Title Image' />
         
-        <button onClick={() => setShowComments(!showComments)}>
+        <button onClick={() => setShowComments(!showComments)} className='comment-hide-show-button'>
           {showComments ? 'Hide Comments' : 'Show comments'}
         </button>
 

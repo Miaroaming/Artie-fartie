@@ -3,10 +3,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    button {
+        font-size: 3em;
+    }
 }
 
 .comments-title {
-    width: 40%;
+    width: 50%;
     margin-top: 30px;
 }
 
@@ -95,7 +98,14 @@
 
 .add-comment button {
     top: 70%;
-    font-size: 30px;
+    font-size: 25px;
+    background-image: url(/images/black-btn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.add-comment button:hover {
+    background-image: url(/images/black-btn-hover.png);
 }
 
 .comment {
