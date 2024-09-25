@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns/formatDistanceToNow';
 import './singlepage.scss';
 
-const baseURL = import.meta.env.VITE_API_BASE_URL
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const SinglePage = () => {
   const navigate = useNavigate();
@@ -105,14 +105,13 @@ const SinglePage = () => {
 
           <div className='bottom-left-single-craft-container'>
             <h3>{craft.title}</h3>
-            <h3>${craft.price}</h3>
+            <h3>{craft.notForSale ? 'Not For Sale' : `$${craft.price}`}</h3>
           </div>
         </div>
 
         <div className='right-single-craft-container'>
           <div className='right-top-single-craft-container'>
             <h3>Type of craft: {craft.type}</h3>
-            <h3 className='for-sale'>For Sale</h3>
             <h6>Created by: {getEmailCharactersBeforeAtSymbol(craft.user_id)}</h6>
           </div>
           
@@ -123,10 +122,17 @@ const SinglePage = () => {
             <h6>Posted {formatDistanceToNow(new Date(craft.createdAt), { includeSeconds: true })} ago</h6>
           </div>
 
-          <button className='buy-button'>Buy Now</button>
+          {/* Modified Buy Now Button */}
+          <button
+            className='buy-button'
+            onClick={() => window.location.href = `mailto:${craft.user_id}?subject=Interest in your craft: ${craft.title}&body=Hi, I am interested in purchasing your craft listed on [Your Platform Name]. Please provide further details.`}
+          >
+            Buy Now
+          </button>
         </div>
       </div>
 
+      {/* Comments Section */}
       <div className='comments-section'>
         <img className='comments-title' src='../../../images/comments-title-img.webp' alt='Comments Title Image' />
         
@@ -157,7 +163,7 @@ const SinglePage = () => {
                   maxLength={MAX_COMMENT_LENGTH}
                   disabled={!user}
                 />
-                <button onClick={handleAddComment} disabled={!user}>Submit</button>
+                <button className='submit-button' onClick={handleAddComment} disabled={!user}>Submit</button>
               </div>
 
               <div className='comments'>
