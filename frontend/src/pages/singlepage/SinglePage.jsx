@@ -57,19 +57,17 @@ const SinglePage = () => {
         setCommentText('');
       }
     } catch (error) {
-      console.error('Error Adding Comment!', error);
+
     }
   };
 
   useEffect(() => {
     axios.get(`${baseURL}/api/crafts/${id}`)
       .then((res) => {
-        console.log(res.data);
         setCraft(res.data);
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
       });
   }, [id]);

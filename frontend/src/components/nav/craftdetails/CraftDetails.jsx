@@ -39,10 +39,10 @@ const CraftDetails = ({ craft }) => {
       try {
           const response = await axios.delete(`${baseURL}/api/crafts/${craft._id}`);
           if (response.status === 200) {
-              dispatch({ type: 'DELETE_CRAFT', payload: craft._id }); // Update state directly with ID
+              dispatch({ type: 'DELETE_CRAFT', payload: craft._id });
           }
       } catch (error) {
-          console.error('Error deleting craft:', error);
+
       }
   };
 
@@ -85,7 +85,7 @@ const CraftDetails = ({ craft }) => {
               }
           }
       } catch (error) {
-          console.error('Error updating craft:', error);
+
       }
   };
 

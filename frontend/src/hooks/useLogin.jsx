@@ -34,7 +34,6 @@ export const useLogin = () => {
         }
 
         } catch (error) {
-            console.error(error.response.data.error)
             setError(error.response.data.error)
             setIsLoading(false)
         }
