@@ -49,7 +49,6 @@ const Home = () => {
       const response = await axios.get(`${baseURL}/api/crafts/`)
 
       if (response.status === 200) {
-        console.log(response.data)
         dispatch({type: 'SET_CRAFTS', payload: response.data})
 
       }

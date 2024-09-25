@@ -7,7 +7,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const {login, error, isLoading} = useLogin();
+    const { login, error, isLoading, isAuthenticated } = useLogin(); // Assuming isAuthenticated is provided by useLogin
     
     // States for different screen sizes
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1350);
@@ -30,22 +30,20 @@ const Login = () => {
         };
     }, []);
 
-    const handleSubmit = async (e) => {  // Mark the function as async
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Check if email and password are filled
         if (!email || !password) {
             setErrorMessage('Email and password are required.');
             return;
         }
 
         // Validate password using regex
-        const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
         if (!passwordRegex.test(password)) {
             setErrorMessage('Password must be at least 8 characters long, include one special character, one uppercase letter, and one number.');
             return;
         }
-
 
         await login(email, password);
 
@@ -57,7 +55,12 @@ const Login = () => {
     };
 
     const handleSkip = () => {
-        navigate('/');
+        // Check if user is authenticated before navigating to home page
+        if (isAuthenticated) {
+            navigate('/');
+        } else {
+            setErrorMessage('You must be logged in to skip.');
+        }
     };
 
     return (

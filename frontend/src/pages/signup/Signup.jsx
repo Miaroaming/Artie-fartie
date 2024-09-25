@@ -56,7 +56,6 @@ useEffect(() => {
         await signup(email, password);
     
         if (!error) {
-            console.log("Form submitted and signup successful");
             navigate('/');  // Navigate to home after successful signup
         } else {
             setErrorMessage(error);

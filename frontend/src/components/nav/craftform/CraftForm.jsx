@@ -84,11 +84,9 @@ const CraftForm = () => {
 
             setHideForm(false);
     
-            console.log('New craft added', response.data);
             dispatch({ type: 'CREATE_CRAFTS', payload: response.data });
     
         } catch (error) {
-            console.error(error.response ? error.response.data : error.message);
             setError(error.response ? error.response.data.message : error.message);
         }
     };
