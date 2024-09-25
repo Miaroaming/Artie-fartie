@@ -123,14 +123,14 @@ const SinglePage = () => {
             <h6>Posted {formatDistanceToNow(new Date(craft.createdAt), { includeSeconds: true })} ago</h6>
           </div>
 
-          <button className='buy-button'>Buy Now</button>
+          <button className='buy-button'>Contact</button>
         </div>
       </div>
 
       <div className='comments-section'>
         <img className='comments-title' src='../../../images/comments-title-img.webp' alt='Comments Title Image' />
         
-        <button onClick={() => setShowComments(!showComments)}>
+        <button onClick={() => setShowComments(!showComments)} className='comment-hide-show-button'>
           {showComments ? 'Hide Comments' : 'Show comments'}
         </button>
 
